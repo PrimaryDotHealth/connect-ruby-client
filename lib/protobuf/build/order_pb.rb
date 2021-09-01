@@ -91,12 +91,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       value :PRIORITY_TIMING_CRITICAL, 4
     end
     add_enum "primary.connect.Order.Order.ResultStatus" do
-      value :FINAL, 0
+      value :UNAVAILABLE, 0
       value :PRELIMINARY, 1
       value :IN_PROCESS, 2
       value :CORRECTED, 3
       value :CANCELED, 4
-      value :UNAVAILABLE, 5
+      value :FINAL, 5
     end
     add_enum "primary.connect.Order.Order.ResponseFlag" do
       value :ACKNOWLEDGEMENT, 0
