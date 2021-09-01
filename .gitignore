@@ -13,11 +13,12 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+.byebug_history
 
 ## Specific to RubyMotion:
 .dat*
 .repl_history
-build/
+/build/
 
 ## Documentation cache and generated files:
 /.yardoc/

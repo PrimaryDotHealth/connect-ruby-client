@@ -64,7 +64,7 @@ end
 
 api_instance = PrimaryConnectClient::DefaultApi.new
 opts = {
-  order: PrimaryConnectClient::Order.new # Order | 
+  order: Primary::Connect::Order.new.to_json # Order |
 }
 
 begin
@@ -80,48 +80,21 @@ end
 
 All URIs are relative to *https://connect.primary.health*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*PrimaryConnectClient::DefaultApi* | [**create_order**](docs/DefaultApi.md#create_order) | **POST** /api/v1/orders | create order
-*PrimaryConnectClient::DefaultApi* | [**get_order**](docs/DefaultApi.md#get_order) | **GET** /api/v1/orders/{id} | show order
-*PrimaryConnectClient::DefaultApi* | [**get_result**](docs/DefaultApi.md#get_result) | **GET** /api/v1/orders/{order_id}/results/{id} | show result
-*PrimaryConnectClient::DefaultApi* | [**list_events**](docs/DefaultApi.md#list_events) | **GET** /api/v1/events | list events
-*PrimaryConnectClient::DefaultApi* | [**list_orders**](docs/DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders
-*PrimaryConnectClient::DefaultApi* | [**list_results**](docs/DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results
-
+| Class                              | Method                                              | HTTP request                                   | Description  |
+| ---------------------------------- | --------------------------------------------------- | ---------------------------------------------- | ------------ |
+| _PrimaryConnectClient::DefaultApi_ | [**create_order**](docs/DefaultApi.md#create_order) | **POST** /api/v1/orders                        | create order |
+| _PrimaryConnectClient::DefaultApi_ | [**get_order**](docs/DefaultApi.md#get_order)       | **GET** /api/v1/orders/{id}                    | show order   |
+| _PrimaryConnectClient::DefaultApi_ | [**get_result**](docs/DefaultApi.md#get_result)     | **GET** /api/v1/orders/{order_id}/results/{id} | show result  |
+| _PrimaryConnectClient::DefaultApi_ | [**list_events**](docs/DefaultApi.md#list_events)   | **GET** /api/v1/events                         | list events  |
+| _PrimaryConnectClient::DefaultApi_ | [**list_orders**](docs/DefaultApi.md#list_orders)   | **GET** /api/v1/orders                         | list orders  |
+| _PrimaryConnectClient::DefaultApi_ | [**list_results**](docs/DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results      | list results |
 
 ## Documentation for Models
 
- - [PrimaryConnectClient::Address](docs/Address.md)
- - [PrimaryConnectClient::Identifier](docs/Identifier.md)
- - [PrimaryConnectClient::Location](docs/Location.md)
- - [PrimaryConnectClient::Message](docs/Message.md)
- - [PrimaryConnectClient::MessageDestination](docs/MessageDestination.md)
- - [PrimaryConnectClient::Name](docs/Name.md)
- - [PrimaryConnectClient::Order](docs/Order.md)
- - [PrimaryConnectClient::OrderClinicalInfo](docs/OrderClinicalInfo.md)
- - [PrimaryConnectClient::OrderDiagnoses](docs/OrderDiagnoses.md)
- - [PrimaryConnectClient::OrderOrderingFacility](docs/OrderOrderingFacility.md)
- - [PrimaryConnectClient::OrderProcedure](docs/OrderProcedure.md)
- - [PrimaryConnectClient::OrderSpecimen](docs/OrderSpecimen.md)
- - [PrimaryConnectClient::Patient](docs/Patient.md)
- - [PrimaryConnectClient::PatientContacts](docs/PatientContacts.md)
- - [PrimaryConnectClient::PatientDemographics](docs/PatientDemographics.md)
- - [PrimaryConnectClient::PhoneNumber](docs/PhoneNumber.md)
- - [PrimaryConnectClient::Provider](docs/Provider.md)
- - [PrimaryConnectClient::Visit](docs/Visit.md)
- - [PrimaryConnectClient::VisitCompany](docs/VisitCompany.md)
- - [PrimaryConnectClient::VisitGuarantor](docs/VisitGuarantor.md)
- - [PrimaryConnectClient::VisitGuarantorEmployer](docs/VisitGuarantorEmployer.md)
- - [PrimaryConnectClient::VisitInsurances](docs/VisitInsurances.md)
- - [PrimaryConnectClient::VisitInsured](docs/VisitInsured.md)
- - [PrimaryConnectClient::VisitPlan](docs/VisitPlan.md)
-
+**TODO**
 
 ## Documentation for Authorization
-
 
 ### bearer_auth
 
 - **Type**: Bearer authentication
-
