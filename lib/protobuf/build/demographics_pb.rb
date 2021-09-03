@@ -38,6 +38,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       value :RACE_OTHER, 5
       value :RACE_WHITE, 6
       value :RACE_PREFER_NOT_TO_DISCLOSE, 7
+      value :RACE_MIDDLE_EASTERN_OR_NORTH_AFRICAN, 8
     end
     add_enum "primary.connect.Demographics.RaceDetail" do
       value :RACE_DETAIL_UNKNOWN, 0
