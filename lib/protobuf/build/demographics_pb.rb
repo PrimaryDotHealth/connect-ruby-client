@@ -16,7 +16,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :sex, :enum, 4, "primary.connect.Demographics.Sex"
       optional :gender, :enum, 5, "primary.connect.Demographics.Gender"
       optional :sexual_orientation, :enum, 6, "primary.connect.Demographics.SexualOrientation"
-      repeated :race, :enum, 7, "primary.connect.Demographics.Race"
+      repeated :races, :enum, 7, "primary.connect.Demographics.Race"
       repeated :race_detail, :enum, 8, "primary.connect.Demographics.RaceDetail"
       optional :ethnicity, :enum, 9, "primary.connect.Demographics.Ethnicity"
       repeated :ethnicity_detail, :enum, 10, "primary.connect.Demographics.EthnicityDetail"
