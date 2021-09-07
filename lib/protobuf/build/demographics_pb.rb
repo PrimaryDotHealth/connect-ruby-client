@@ -105,7 +105,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_enum "primary.connect.Demographics.Ethnicity" do
       value :ETHNICITY_UNKNOWN, 0
       value :ETHNICITY_HISPANIC, 1
-      value :ETHNICITY_NOT_HISPANIC, 2
+      value :ETHNICITY_NON_HISPANIC, 2
       value :ETHNICITY_PREFER_NOT_TO_DISCLOSE, 3
     end
     add_enum "primary.connect.Demographics.EthnicityDetail" do
