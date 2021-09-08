@@ -35,6 +35,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :reference_range, :message, 18, "primary.connect.Results.Result.Range"
       optional :observation_method, :message, 19, "primary.connect.Results.Result.ObservationMethod"
       optional :producer_order_id, :string, 20
+      optional :finding_value, :message, 21, "primary.connect.Results.Result.FindingValue"
     end
     add_message "primary.connect.Results.Result.Producer" do
       optional :id, :message, 1, "primary.connect.Identifier"
@@ -50,6 +51,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :code, :string, 1
       optional :code_set, :string, 2
       optional :description, :string, 3
+    end
+    add_message "primary.connect.Results.Result.FindingValue" do
+      optional :code, :string, 1
+      optional :code_set, :string, 2
     end
     add_enum "primary.connect.Results.Result.ValueType" do
       value :ADDRESS, 0
@@ -110,6 +115,7 @@ module Primary
     Results::Result::Producer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Producer").msgclass
     Results::Result::Range = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Range").msgclass
     Results::Result::ObservationMethod = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.ObservationMethod").msgclass
+    Results::Result::FindingValue = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.FindingValue").msgclass
     Results::Result::ValueType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.ValueType").enummodule
     Results::Result::AbnormalFlag = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.AbnormalFlag").enummodule
     Results::Result::Status = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Status").enummodule
