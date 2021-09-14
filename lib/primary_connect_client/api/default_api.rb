@@ -206,17 +206,17 @@ module PrimaryConnectClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_event_ulid Paginate events with event ulid
     # @option opts [String] :event_types Filter event_types, comma delimited
-    # @return [nil]
+    # @return [Object]
     def list_events(opts = {})
-      list_events_with_http_info(opts)
-      nil
+      data, _status_code, _headers = list_events_with_http_info(opts)
+      data
     end
 
     # list events
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_event_ulid Paginate events with event ulid
     # @option opts [String] :event_types Filter event_types, comma delimited
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def list_events_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.list_events ...'
@@ -231,6 +231,8 @@ module PrimaryConnectClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -239,7 +241,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']
