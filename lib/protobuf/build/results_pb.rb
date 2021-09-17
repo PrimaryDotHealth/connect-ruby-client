@@ -22,7 +22,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :value, :string, 4
       optional :value_type, :enum, 5, "primary.connect.Results.Result.ValueType"
       optional :completion_date_time, :message, 6, "google.protobuf.Timestamp"
-      optional :file_type, :string, 7
+      optional :report, :message, 7, "primary.connect.Results.Result.Report"
       optional :units, :string, 8
       repeated :notes, :string, 9
       optional :abnormal_flag, :enum, 10, "primary.connect.Results.Result.AbnormalFlag"
@@ -49,6 +49,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :value, :string, 1
       optional :code_set, :string, 2
       optional :description, :string, 3
+    end
+    add_message "primary.connect.Results.Result.Report" do
+      optional :file_type, :string, 1
+      optional :data, :string, 2
     end
     add_enum "primary.connect.Results.Result.ValueType" do
       value :ADDRESS, 0
@@ -109,6 +113,7 @@ module Primary
     Results::Result::Producer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Producer").msgclass
     Results::Result::Range = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Range").msgclass
     Results::Result::CodedValue = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.CodedValue").msgclass
+    Results::Result::Report = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Report").msgclass
     Results::Result::ValueType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.ValueType").enummodule
     Results::Result::AbnormalFlag = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.AbnormalFlag").enummodule
     Results::Result::Status = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Status").enummodule
