@@ -81,16 +81,16 @@ module PrimaryConnectClient
     # show order
     # @param id [String] id
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [Object]
     def get_order(id, opts = {})
-      get_order_with_http_info(id, opts)
-      nil
+      data, _status_code, _headers = get_order_with_http_info(id, opts)
+      data
     end
 
     # show order
     # @param id [String] id
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def get_order_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.get_order ...'
@@ -107,6 +107,8 @@ module PrimaryConnectClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -115,7 +117,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']
@@ -265,6 +267,8 @@ module PrimaryConnectClient
 
     # list orders
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :last_order_ulid Paginate orders with order ulid
+    # @option opts [String] :state Filter orders by state, comma delimited
     # @return [nil]
     def list_orders(opts = {})
       list_orders_with_http_info(opts)
@@ -273,6 +277,8 @@ module PrimaryConnectClient
 
     # list orders
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :last_order_ulid Paginate orders with order ulid
+    # @option opts [String] :state Filter orders by state, comma delimited
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def list_orders_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -283,6 +289,8 @@ module PrimaryConnectClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'last_order_ulid'] = opts[:'last_order_ulid'] if !opts[:'last_order_ulid'].nil?
+      query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
