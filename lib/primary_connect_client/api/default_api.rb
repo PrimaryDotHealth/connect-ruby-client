@@ -141,7 +141,7 @@ module PrimaryConnectClient
 
     # show result
     # @param order_id [String] Order id
-    # @param id [String] id
+    # @param id [String] Result id
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def get_result(order_id, id, opts = {})
@@ -151,7 +151,7 @@ module PrimaryConnectClient
 
     # show result
     # @param order_id [String] Order id
-    # @param id [String] id
+    # @param id [String] Result id
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_result_with_http_info(order_id, id, opts = {})
@@ -269,17 +269,17 @@ module PrimaryConnectClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_order_ulid Paginate orders with order ulid
     # @option opts [String] :state Filter orders by state, comma delimited
-    # @return [nil]
+    # @return [Object]
     def list_orders(opts = {})
-      list_orders_with_http_info(opts)
-      nil
+      data, _status_code, _headers = list_orders_with_http_info(opts)
+      data
     end
 
     # list orders
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_order_ulid Paginate orders with order ulid
     # @option opts [String] :state Filter orders by state, comma delimited
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def list_orders_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.list_orders ...'
@@ -294,6 +294,8 @@ module PrimaryConnectClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -302,7 +304,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']
@@ -327,16 +329,16 @@ module PrimaryConnectClient
     # list results
     # @param order_id [String] Order id
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return [Object]
     def list_results(order_id, opts = {})
-      list_results_with_http_info(order_id, opts)
-      nil
+      data, _status_code, _headers = list_results_with_http_info(order_id, opts)
+      data
     end
 
     # list results
     # @param order_id [String] Order id
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def list_results_with_http_info(order_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.list_results ...'
@@ -353,6 +355,8 @@ module PrimaryConnectClient
 
       # header parameters
       header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -361,7 +365,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']
