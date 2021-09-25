@@ -3,12 +3,12 @@
 $LOAD_PATH << './lib/protobuf/build'
 
 require 'address_pb'
+require 'coded_value'
 require 'identifier_pb'
 require 'location_pb'
 require 'meta_pb'
 require 'name_pb'
 require 'phone_number_pb'
-require 'procedure_pb'
 require 'relationship_pb'
 require 'specimen_pb'
 require 'demographics_pb'
