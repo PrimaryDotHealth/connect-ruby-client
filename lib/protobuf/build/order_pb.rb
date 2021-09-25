@@ -5,10 +5,10 @@ require 'google/protobuf'
 
 require 'google/protobuf/timestamp_pb'
 require 'address_pb'
+require 'coded_value_pb'
 require 'meta_pb'
 require 'patient_pb'
 require 'phone_number_pb'
-require 'procedure_pb'
 require 'provider_pb'
 require 'specimen_pb'
 require 'visit_pb'
@@ -29,7 +29,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :completion_date_time, :message, 6, "google.protobuf.Timestamp"
       optional :expiration_date, :string, 7
       optional :specimen, :message, 8, "primary.connect.Specimen"
-      optional :procedure, :message, 9, "primary.connect.Procedure"
+      optional :procedure, :message, 9, "primary.connect.CodedValue"
       optional :ordering_provider, :message, 10, "primary.connect.Provider"
       repeated :result_copy_providers, :message, 11, "primary.connect.Provider"
       optional :ordering_facility, :message, 12, "primary.connect.Order.Order.Facility"
@@ -47,11 +47,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       repeated :phone_numbers, :message, 3, "primary.connect.PhoneNumber"
     end
     add_message "primary.connect.Order.Order.Diagnosis" do
-      optional :code, :string, 1
-      optional :code_set, :enum, 2, "primary.connect.Order.Order.Diagnosis.CodeSet"
-      optional :name, :string, 3
-      optional :type, :enum, 4, "primary.connect.Order.Order.Diagnosis.Type"
-      optional :documented_date_time, :message, 5, "google.protobuf.Timestamp"
+      optional :code, :message, 1, "primary.connect.CodedValue"
+      optional :type, :enum, 2, "primary.connect.Order.Order.Diagnosis.Type"
+      optional :documented_date_time, :message, 3, "google.protobuf.Timestamp"
     end
     add_enum "primary.connect.Order.Order.Diagnosis.Type" do
       value :TYPE_UNKNOWN, 0
@@ -61,21 +59,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       value :TYPE_WORKING, 4
       value :TYPE_PRINCIPAL, 5
     end
-    add_enum "primary.connect.Order.Order.Diagnosis.CodeSet" do
-      value :UNKNOWN, 0
-      value :ICD_10, 1
-      value :ICD_9, 2
-      value :HCPCS, 3
-      value :CPT, 4
-    end
     add_message "primary.connect.Order.Order.ClinicalInfo" do
-      optional :code, :string, 1
-      optional :code_set, :string, 2
-      optional :description, :string, 3
-      optional :value, :string, 4
-      optional :units, :string, 5
-      optional :abbreviation, :string, 6
-      repeated :notes, :string, 7
+      optional :code, :message, 1, "primary.connect.CodedValue"
+      optional :value, :string, 2
+      optional :units, :string, 3
+      optional :abbreviation, :string, 4
+      repeated :notes, :string, 5
     end
     add_enum "primary.connect.Order.Order.Status" do
       value :STATUS_NEW, 0
@@ -115,7 +104,6 @@ module Primary
     Order::Order::Facility = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Facility").msgclass
     Order::Order::Diagnosis = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Diagnosis").msgclass
     Order::Order::Diagnosis::Type = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Diagnosis.Type").enummodule
-    Order::Order::Diagnosis::CodeSet = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Diagnosis.CodeSet").enummodule
     Order::Order::ClinicalInfo = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.ClinicalInfo").msgclass
     Order::Order::Status = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Status").enummodule
     Order::Order::Priority = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Order.Order.Priority").enummodule

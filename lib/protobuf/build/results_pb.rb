@@ -5,6 +5,7 @@ require 'google/protobuf'
 
 require 'google/protobuf/timestamp_pb'
 require 'address_pb'
+require 'coded_value_pb'
 require 'identifier_pb'
 require 'meta_pb'
 require 'provider_pb'
@@ -16,7 +17,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       repeated :results, :message, 2, "primary.connect.Results.Result"
     end
     add_message "primary.connect.Results.Result" do
-      optional :code, :message, 1, "primary.connect.Results.Result.CodedValue"
+      optional :code, :message, 1, "primary.connect.CodedValue"
       repeated :related_group_id, :string, 2
       optional :specimen, :message, 3, "primary.connect.Specimen"
       optional :value, :string, 4
@@ -31,9 +32,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :producer, :message, 14, "primary.connect.Results.Result.Producer"
       optional :performer, :message, 15, "primary.connect.Provider"
       optional :reference_range, :message, 16, "primary.connect.Results.Result.Range"
-      optional :observation_method, :message, 17, "primary.connect.Results.Result.CodedValue"
+      optional :observation_method, :message, 17, "primary.connect.CodedValue"
       optional :producer_order_id, :string, 18
-      optional :finding_value, :message, 19, "primary.connect.Results.Result.CodedValue"
+      optional :finding_value, :message, 19, "primary.connect.CodedValue"
     end
     add_message "primary.connect.Results.Result.Producer" do
       optional :id, :message, 1, "primary.connect.Identifier"
@@ -44,11 +45,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :low, :int32, 1
       optional :high, :int32, 2
       optional :text, :string, 3
-    end
-    add_message "primary.connect.Results.Result.CodedValue" do
-      optional :value, :string, 1
-      optional :code_set, :string, 2
-      optional :description, :string, 3
     end
     add_message "primary.connect.Results.Result.Report" do
       optional :file_type, :string, 1
@@ -112,7 +108,6 @@ module Primary
     Results::Result = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result").msgclass
     Results::Result::Producer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Producer").msgclass
     Results::Result::Range = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Range").msgclass
-    Results::Result::CodedValue = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.CodedValue").msgclass
     Results::Result::Report = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.Report").msgclass
     Results::Result::ValueType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.ValueType").enummodule
     Results::Result::AbnormalFlag = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("primary.connect.Results.Result.AbnormalFlag").enummodule
