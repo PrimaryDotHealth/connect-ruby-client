@@ -206,7 +206,7 @@ module PrimaryConnectClient
 
     # list events
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :last_event_ulid Paginate events with event ulid
+    # @option opts [String] :last_event_id Paginate events with event id
     # @option opts [String] :event_types Filter event_types, comma delimited
     # @return [Object]
     def list_events(opts = {})
@@ -216,7 +216,7 @@ module PrimaryConnectClient
 
     # list events
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :last_event_ulid Paginate events with event ulid
+    # @option opts [String] :last_event_id Paginate events with event id
     # @option opts [String] :event_types Filter event_types, comma delimited
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def list_events_with_http_info(opts = {})
@@ -228,7 +228,7 @@ module PrimaryConnectClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'last_event_ulid'] = opts[:'last_event_ulid'] if !opts[:'last_event_ulid'].nil?
+      query_params[:'last_event_id'] = opts[:'last_event_id'] if !opts[:'last_event_id'].nil?
       query_params[:'event_types'] = opts[:'event_types'] if !opts[:'event_types'].nil?
 
       # header parameters
@@ -267,7 +267,7 @@ module PrimaryConnectClient
 
     # list orders
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :last_order_ulid Paginate orders with order ulid
+    # @option opts [String] :last_order_id Paginate orders with order id
     # @option opts [String] :state Filter orders by state, comma delimited
     # @return [Object]
     def list_orders(opts = {})
@@ -277,7 +277,7 @@ module PrimaryConnectClient
 
     # list orders
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :last_order_ulid Paginate orders with order ulid
+    # @option opts [String] :last_order_id Paginate orders with order id
     # @option opts [String] :state Filter orders by state, comma delimited
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def list_orders_with_http_info(opts = {})
@@ -289,7 +289,7 @@ module PrimaryConnectClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'last_order_ulid'] = opts[:'last_order_ulid'] if !opts[:'last_order_ulid'].nil?
+      query_params[:'last_order_id'] = opts[:'last_order_id'] if !opts[:'last_order_id'].nil?
       query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
 
       # header parameters
