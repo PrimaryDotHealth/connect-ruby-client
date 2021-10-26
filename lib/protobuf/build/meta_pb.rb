@@ -29,6 +29,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "primary.connect.Meta.Destination" do
       optional :id, :string, 1
       optional :name, :string, 2
+      map :config, :string, :string, 3
     end
     add_enum "primary.connect.Meta.EventType" do
       value :EVENT_TYPE_NEW, 0
