@@ -35,7 +35,7 @@ describe 'DefaultApi' do
   # unit tests for api_v1_events_get
   # list events
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :last_event_ulid 
+  # @option opts [String] :last_event_id 
   # @option opts [String] :event_types 
   # @return [nil]
   describe 'api_v1_events_get test' do
