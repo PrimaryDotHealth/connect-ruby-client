@@ -16,6 +16,9 @@ require 'primary_connect_client/configuration'
 # APIs
 require 'primary_connect_client/api/default_api'
 
+# Protobufs
+require 'primary_connect_proto'
+
 module PrimaryConnectClient
   class << self
     # Customize default settings for the SDK using block.
