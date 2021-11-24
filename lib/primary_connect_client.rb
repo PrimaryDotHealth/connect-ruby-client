@@ -13,24 +13,11 @@ require 'primary_connect_client/api_error'
 require 'primary_connect_client/version'
 require 'primary_connect_client/configuration'
 
-# Protobufs
-require 'protobuf/protobuf'
-require 'protobuf/extensions'
-
-Primary::Connect::Name.include(Primary::Connect::Extensions::FullNameable)
-[
-  Primary::Connect::Provider,
-  Primary::Connect::Demographics,
-  Primary::Connect::Order::Order::Facility,
-  Primary::Connect::Patient::Contact,
-  Primary::Connect::Visit::Guarantor,
-  Primary::Connect::Visit::Guarantor::Employer
-].each do |protobuf|
-  protobuf.include(Primary::Connect::Extensions::PhoneNumberable)
-end
-
 # APIs
 require 'primary_connect_client/api/default_api'
+
+# Protobufs
+require 'primary_connect_proto'
 
 module PrimaryConnectClient
   class << self
