@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.0
+
+- Bumped `primary_connect_proto` to `0.7.2`
+
 ## 0.4.0
 
 - Bumped `primary_connect_proto` to `0.7.1`
