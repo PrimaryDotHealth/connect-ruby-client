@@ -140,34 +140,28 @@ module PrimaryConnectClient
     end
 
     # show lab report
-    # @param order_id [String] Order id
     # @param result_id [String] Result id
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def get_lab_report(order_id, result_id, opts = {})
-      get_lab_report_with_http_info(order_id, result_id, opts)
+    def get_lab_report(result_id, opts = {})
+      get_lab_report_with_http_info(result_id, opts)
       nil
     end
 
     # show lab report
-    # @param order_id [String] Order id
     # @param result_id [String] Result id
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_lab_report_with_http_info(order_id, result_id, opts = {})
+    def get_lab_report_with_http_info(result_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.get_lab_report ...'
-      end
-      # verify the required parameter 'order_id' is set
-      if @api_client.config.client_side_validation && order_id.nil?
-        fail ArgumentError, "Missing the required parameter 'order_id' when calling DefaultApi.get_lab_report"
       end
       # verify the required parameter 'result_id' is set
       if @api_client.config.client_side_validation && result_id.nil?
         fail ArgumentError, "Missing the required parameter 'result_id' when calling DefaultApi.get_lab_report"
       end
       # resource path
-      local_var_path = '/api/v1/orders/{order_id}/results/{result_id}/lab_report'.sub('{' + 'order_id' + '}', CGI.escape(order_id.to_s)).sub('{' + 'result_id' + '}', CGI.escape(result_id.to_s))
+      local_var_path = '/api/v1/results/{result_id}/lab_report'.sub('{' + 'result_id' + '}', CGI.escape(result_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -196,12 +190,6 @@ module PrimaryConnectClient
         :auth_names => auth_names,
         :return_type => return_type
       )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#get_lab_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
     end
 
     # show result
