@@ -142,10 +142,9 @@ module PrimaryConnectClient
     # show lab report
     # @param result_id [String] Result id
     # @param [Hash] opts the optional parameters
-    # @return [nil]
+    # @return report SS: previously generated as nil
     def get_lab_report(result_id, opts = {})
       get_lab_report_with_http_info(result_id, opts)
-      nil
     end
 
     # show lab report
@@ -176,7 +175,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'String' # SS: set lab report return type as String
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']
@@ -190,6 +189,13 @@ module PrimaryConnectClient
         :auth_names => auth_names,
         :return_type => return_type
       )
+
+      # SS: Previously generated as nil so nothing was returned. Added below to get the lab report
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#get_lab_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data
     end
 
     # show result
