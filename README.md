@@ -84,6 +84,7 @@ All URIs are relative to *https://connect.primary.health*
 | ---------------------------------- | --------------------------------------------------- | ---------------------------------------------- | ------------ |
 | _PrimaryConnectClient::DefaultApi_ | [**create_order**](docs/DefaultApi.md#create_order) | **POST** /api/v1/orders                        | create order |
 | _PrimaryConnectClient::DefaultApi_ | [**get_order**](docs/DefaultApi.md#get_order)       | **GET** /api/v1/orders/{id}                    | show order   |
+| _PrimaryConnectClient::DefaultApi_ | [**get_lab_report**](docs/DefaultApi.md#get_lab_report)       | **GET** /api/v1/results/{result_id}/lab_report | show lab report |
 | _PrimaryConnectClient::DefaultApi_ | [**get_result**](docs/DefaultApi.md#get_result)     | **GET** /api/v1/orders/{order_id}/results/{id} | show result  |
 | _PrimaryConnectClient::DefaultApi_ | [**list_events**](docs/DefaultApi.md#list_events)   | **GET** /api/v1/events                         | list events  |
 | _PrimaryConnectClient::DefaultApi_ | [**list_orders**](docs/DefaultApi.md#list_orders)   | **GET** /api/v1/orders                         | list orders  |

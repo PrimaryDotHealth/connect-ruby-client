@@ -109,7 +109,8 @@ module PrimaryConnectClient
         :ssl_verifyhost => _verify_ssl_host,
         :sslcert => @config.cert_file,
         :sslkey => @config.key_file,
-        :verbose => @config.debugging
+        :verbose => @config.debugging,
+        :followlocation => true # SS: Added to follow redirects
       }
 
       # set custom cert, if provided
