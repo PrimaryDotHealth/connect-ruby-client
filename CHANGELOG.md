@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.0
+
+- Bumped `primary_connect_proto` to `0.9.0`
+
 ## 0.7.0
 
 - Added lab report endpoint
