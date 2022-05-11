@@ -64,12 +64,13 @@ end
 
 api_instance = PrimaryConnectClient::DefaultApi.new
 opts = {
-  order: Primary::Connect::Order.new.to_json # Order |
+  order: PrimaryConnectClient::Order.new # Order | 
 }
 
 begin
   #create order
-  api_instance.create_order(opts)
+  result = api_instance.create_order(opts)
+  p result
 rescue PrimaryConnectClient::ApiError => e
   puts "Exception when calling DefaultApi->create_order: #{e}"
 end
@@ -80,22 +81,65 @@ end
 
 All URIs are relative to *https://connect.primary.health*
 
-| Class                              | Method                                              | HTTP request                                   | Description  |
-| ---------------------------------- | --------------------------------------------------- | ---------------------------------------------- | ------------ |
-| _PrimaryConnectClient::DefaultApi_ | [**create_order**](docs/DefaultApi.md#create_order) | **POST** /api/v1/orders                        | create order |
-| _PrimaryConnectClient::DefaultApi_ | [**get_order**](docs/DefaultApi.md#get_order)       | **GET** /api/v1/orders/{id}                    | show order   |
-| _PrimaryConnectClient::DefaultApi_ | [**get_lab_report**](docs/DefaultApi.md#get_lab_report)       | **GET** /api/v1/results/{result_id}/lab_report | show lab report |
-| _PrimaryConnectClient::DefaultApi_ | [**get_result**](docs/DefaultApi.md#get_result)     | **GET** /api/v1/orders/{order_id}/results/{id} | show result  |
-| _PrimaryConnectClient::DefaultApi_ | [**list_events**](docs/DefaultApi.md#list_events)   | **GET** /api/v1/events                         | list events  |
-| _PrimaryConnectClient::DefaultApi_ | [**list_orders**](docs/DefaultApi.md#list_orders)   | **GET** /api/v1/orders                         | list orders  |
-| _PrimaryConnectClient::DefaultApi_ | [**list_results**](docs/DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results      | list results |
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*PrimaryConnectClient::DefaultApi* | [**create_order**](docs/DefaultApi.md#create_order) | **POST** /api/v1/orders | create order
+*PrimaryConnectClient::DefaultApi* | [**create_result**](docs/DefaultApi.md#create_result) | **POST** /api/v1/orders/{order_id}/results | create result
+*PrimaryConnectClient::DefaultApi* | [**get_lab_report**](docs/DefaultApi.md#get_lab_report) | **GET** /api/v1/results/{result_id}/lab_report | show lab report
+*PrimaryConnectClient::DefaultApi* | [**get_order**](docs/DefaultApi.md#get_order) | **GET** /api/v1/orders/{id} | show order
+*PrimaryConnectClient::DefaultApi* | [**list_events**](docs/DefaultApi.md#list_events) | **GET** /api/v1/events | list events
+*PrimaryConnectClient::DefaultApi* | [**list_orders**](docs/DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders
+*PrimaryConnectClient::DefaultApi* | [**list_results**](docs/DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results
+*PrimaryConnectClient::DefaultApi* | [**update_order**](docs/DefaultApi.md#update_order) | **PUT** /api/v1/orders/{id} | update order
+
 
 ## Documentation for Models
 
-**TODO**
+ - [PrimaryConnectClient::Address](docs/Address.md)
+ - [PrimaryConnectClient::CodedValue](docs/CodedValue.md)
+ - [PrimaryConnectClient::Demographics](docs/Demographics.md)
+ - [PrimaryConnectClient::Error](docs/Error.md)
+ - [PrimaryConnectClient::Event](docs/Event.md)
+ - [PrimaryConnectClient::Events](docs/Events.md)
+ - [PrimaryConnectClient::Identifier](docs/Identifier.md)
+ - [PrimaryConnectClient::Location](docs/Location.md)
+ - [PrimaryConnectClient::Meta](docs/Meta.md)
+ - [PrimaryConnectClient::MetaDestinations](docs/MetaDestinations.md)
+ - [PrimaryConnectClient::MetaMessage](docs/MetaMessage.md)
+ - [PrimaryConnectClient::MetaSource](docs/MetaSource.md)
+ - [PrimaryConnectClient::Name](docs/Name.md)
+ - [PrimaryConnectClient::Order](docs/Order.md)
+ - [PrimaryConnectClient::OrderIds](docs/OrderIds.md)
+ - [PrimaryConnectClient::OrderOrder](docs/OrderOrder.md)
+ - [PrimaryConnectClient::OrderOrderClinicalInfo](docs/OrderOrderClinicalInfo.md)
+ - [PrimaryConnectClient::OrderOrderDiagnoses](docs/OrderOrderDiagnoses.md)
+ - [PrimaryConnectClient::OrderOrderOrderingFacility](docs/OrderOrderOrderingFacility.md)
+ - [PrimaryConnectClient::OrderWithEventErrors](docs/OrderWithEventErrors.md)
+ - [PrimaryConnectClient::Orders](docs/Orders.md)
+ - [PrimaryConnectClient::OrdersOrders](docs/OrdersOrders.md)
+ - [PrimaryConnectClient::Patient](docs/Patient.md)
+ - [PrimaryConnectClient::PatientContacts](docs/PatientContacts.md)
+ - [PrimaryConnectClient::PhoneNumber](docs/PhoneNumber.md)
+ - [PrimaryConnectClient::Provider](docs/Provider.md)
+ - [PrimaryConnectClient::Result](docs/Result.md)
+ - [PrimaryConnectClient::ResultIds](docs/ResultIds.md)
+ - [PrimaryConnectClient::ResultReferenceRange](docs/ResultReferenceRange.md)
+ - [PrimaryConnectClient::ResultReport](docs/ResultReport.md)
+ - [PrimaryConnectClient::Results](docs/Results.md)
+ - [PrimaryConnectClient::Specimen](docs/Specimen.md)
+ - [PrimaryConnectClient::Visit](docs/Visit.md)
+ - [PrimaryConnectClient::VisitCompany](docs/VisitCompany.md)
+ - [PrimaryConnectClient::VisitGuarantor](docs/VisitGuarantor.md)
+ - [PrimaryConnectClient::VisitGuarantorEmployer](docs/VisitGuarantorEmployer.md)
+ - [PrimaryConnectClient::VisitInsurances](docs/VisitInsurances.md)
+ - [PrimaryConnectClient::VisitInsured](docs/VisitInsured.md)
+ - [PrimaryConnectClient::VisitPlan](docs/VisitPlan.md)
+
 
 ## Documentation for Authorization
+
 
 ### bearer_auth
 
 - **Type**: Bearer authentication
+
