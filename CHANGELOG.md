@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.0.0
+
+- Added `create_result`
+- Added `update_order`
+- Included auto-generated models
+
+### Breaking changes
+
+- Updated responses to return models instead of Objects
+- No longer includes `primary_connect_proto` as it isn't technically a strict dependency.
+
 ## 0.8.0
 
 - Bumped `primary_connect_proto` to `0.9.0`
