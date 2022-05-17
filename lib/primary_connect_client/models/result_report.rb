@@ -28,7 +28,7 @@ module PrimaryConnectClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'file_type' => :'file_type',
+        :'file_type' => :'fileType',
         :'data' => :'data',
         :'url' => :'url'
       }

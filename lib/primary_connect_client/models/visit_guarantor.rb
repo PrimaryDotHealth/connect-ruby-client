@@ -74,10 +74,10 @@ module PrimaryConnectClient
         :'sex' => :'sex',
         :'spouse' => :'spouse',
         :'address' => :'address',
-        :'phone_numbers' => :'phone_numbers',
-        :'email_addresses' => :'email_addresses',
+        :'phone_numbers' => :'phoneNumbers',
+        :'email_addresses' => :'emailAddresses',
         :'type' => :'type',
-        :'relation_to_patient' => :'relation_to_patient',
+        :'relation_to_patient' => :'relationToPatient',
         :'employer' => :'employer'
       }
     end

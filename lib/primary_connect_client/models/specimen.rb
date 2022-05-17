@@ -29,7 +29,7 @@ module PrimaryConnectClient
       {
         :'id' => :'id',
         :'source' => :'source',
-        :'body_site' => :'body_site'
+        :'body_site' => :'bodySite'
       }
     end
 

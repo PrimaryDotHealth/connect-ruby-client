@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **street_address_1** | **String** |  | [optional] |
-| **street_address_2** | **String** |  | [optional] |
+| **street_address1** | **String** |  | [optional] |
+| **street_address2** | **String** |  | [optional] |
 | **city** | **String** |  | [optional] |
 | **state_code** | **String** |  | [optional] |
 | **zip** | **String** |  | [optional] |
@@ -19,8 +19,8 @@
 require 'primary_connect_client'
 
 instance = PrimaryConnectClient::Address.new(
-  street_address_1: 123 Sesame St.,
-  street_address_2: Unit 456,
+  street_address1: 123 Sesame St.,
+  street_address2: Unit 456,
   city: Springfield,
   state_code: OH,
   zip: 12345,

@@ -59,14 +59,14 @@ module PrimaryConnectClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'event_type' => :'event_type',
-        :'event_date_and_time' => :'event_date_and_time',
+        :'event_type' => :'eventType',
+        :'event_date_and_time' => :'eventDateAndTime',
         :'test' => :'test',
         :'source' => :'source',
         :'destinations' => :'destinations',
         :'message' => :'message',
         :'transmission' => :'transmission',
-        :'facility_code' => :'facility_code',
+        :'facility_code' => :'facilityCode',
         :'echo' => :'echo'
       }
     end
@@ -85,7 +85,7 @@ module PrimaryConnectClient
         :'source' => :'MetaSource',
         :'destinations' => :'Array<MetaDestinations>',
         :'message' => :'MetaMessage',
-        :'transmission' => :'MetaMessage',
+        :'transmission' => :'MetaTransmission',
         :'facility_code' => :'String',
         :'echo' => :'Object'
       }

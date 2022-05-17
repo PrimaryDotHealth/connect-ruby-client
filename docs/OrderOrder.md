@@ -23,6 +23,7 @@
 | **clinical_info** | [**Array&lt;OrderOrderClinicalInfo&gt;**](OrderOrderClinicalInfo.md) | List of supplementary clinical information associated with the order. Often these are answers to Ask at Order Entry (AOE) questions. | [optional] |
 | **results_status** | **String** | Current overall status of the order | [optional] |
 | **response_flag** | **String** | Specificity of the response requested from the receiving system | [optional] |
+| **external_ids** | [**Array&lt;Identifier&gt;**](Identifier.md) |  | [optional] |
 | **results** | [**Array&lt;Result&gt;**](Result.md) | List of result components | [optional] |
 
 ## Example
@@ -50,6 +51,7 @@ instance = PrimaryConnectClient::OrderOrder.new(
   clinical_info: null,
   results_status: null,
   response_flag: null,
+  external_ids: null,
   results: null
 )
 ```

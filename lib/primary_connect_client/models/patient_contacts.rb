@@ -56,9 +56,9 @@ module PrimaryConnectClient
       {
         :'name' => :'name',
         :'address' => :'address',
-        :'phone_numbers' => :'phone_numbers',
-        :'relation_to_patient' => :'relation_to_patient',
-        :'email_addresses' => :'email_addresses',
+        :'phone_numbers' => :'phoneNumbers',
+        :'relation_to_patient' => :'relationToPatient',
+        :'email_addresses' => :'emailAddresses',
         :'roles' => :'roles'
       }
     end

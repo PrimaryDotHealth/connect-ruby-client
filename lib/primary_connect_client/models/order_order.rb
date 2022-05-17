@@ -68,6 +68,8 @@ module PrimaryConnectClient
     # Specificity of the response requested from the receiving system
     attr_accessor :response_flag
 
+    attr_accessor :external_ids
+
     # List of result components
     attr_accessor :results
 
@@ -97,24 +99,25 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'id' => :'id',
-        :'application_order_id' => :'application_order_id',
+        :'application_order_id' => :'applicationOrderId',
         :'status' => :'status',
-        :'transaction_date_time' => :'transaction_date_time',
-        :'collection_date_time' => :'collection_date_time',
-        :'completion_date_time' => :'completion_date_time',
-        :'expiration_date' => :'expiration_date',
+        :'transaction_date_time' => :'transactionDateTime',
+        :'collection_date_time' => :'collectionDateTime',
+        :'completion_date_time' => :'completionDateTime',
+        :'expiration_date' => :'expirationDate',
         :'specimen' => :'specimen',
         :'procedure' => :'procedure',
-        :'ordering_provider' => :'ordering_provider',
-        :'result_copy_providers' => :'result_copy_providers',
-        :'ordering_facility' => :'ordering_facility',
+        :'ordering_provider' => :'orderingProvider',
+        :'result_copy_providers' => :'resultCopyProviders',
+        :'ordering_facility' => :'orderingFacility',
         :'priority' => :'priority',
         :'diagnoses' => :'diagnoses',
-        :'clinical_comments' => :'clinical_comments',
+        :'clinical_comments' => :'clinicalComments',
         :'notes' => :'notes',
-        :'clinical_info' => :'clinical_info',
-        :'results_status' => :'results_status',
-        :'response_flag' => :'response_flag',
+        :'clinical_info' => :'clinicalInfo',
+        :'results_status' => :'resultsStatus',
+        :'response_flag' => :'responseFlag',
+        :'external_ids' => :'externalIds',
         :'results' => :'results'
       }
     end
@@ -146,6 +149,7 @@ module PrimaryConnectClient
         :'clinical_info' => :'Array<OrderOrderClinicalInfo>',
         :'results_status' => :'String',
         :'response_flag' => :'String',
+        :'external_ids' => :'Array<Identifier>',
         :'results' => :'Array<Result>'
       }
     end
@@ -255,6 +259,12 @@ module PrimaryConnectClient
         self.response_flag = attributes[:'response_flag']
       end
 
+      if attributes.key?(:'external_ids')
+        if (value = attributes[:'external_ids']).is_a?(Array)
+          self.external_ids = value
+        end
+      end
+
       if attributes.key?(:'results')
         if (value = attributes[:'results']).is_a?(Array)
           self.results = value
@@ -347,6 +357,7 @@ module PrimaryConnectClient
           clinical_info == o.clinical_info &&
           results_status == o.results_status &&
           response_flag == o.response_flag &&
+          external_ids == o.external_ids &&
           results == o.results
     end
 
@@ -359,7 +370,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, application_order_id, status, transaction_date_time, collection_date_time, completion_date_time, expiration_date, specimen, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, results].hash
+      [id, application_order_id, status, transaction_date_time, collection_date_time, completion_date_time, expiration_date, specimen, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
     end
 
     # Builds the object from hash

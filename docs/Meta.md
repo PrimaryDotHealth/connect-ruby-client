@@ -10,7 +10,7 @@
 | **source** | [**MetaSource**](MetaSource.md) |  | [optional] |
 | **destinations** | [**Array&lt;MetaDestinations&gt;**](MetaDestinations.md) |  | [optional] |
 | **message** | [**MetaMessage**](MetaMessage.md) |  | [optional] |
-| **transmission** | [**MetaMessage**](MetaMessage.md) |  | [optional] |
+| **transmission** | [**MetaTransmission**](MetaTransmission.md) |  | [optional] |
 | **facility_code** | **String** |  | [optional] |
 | **echo** | **Object** | Arbitrary key/value pairs to store with the Order | [optional] |
 

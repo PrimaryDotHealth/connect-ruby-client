@@ -1,6 +1,10 @@
 # Change Log
 
-## 1.0.0
+## 1.0.1
+
+- Updated models to use camelCased keys
+
+## 1.0.0 (yanked)
 
 - Added `create_result`
 - Added `update_order`

@@ -50,7 +50,7 @@ module PrimaryConnectClient
       {
         :'code' => :'code',
         :'type' => :'type',
-        :'documented_date_time' => :'documented_date_time'
+        :'documented_date_time' => :'documentedDateTime'
       }
     end
 

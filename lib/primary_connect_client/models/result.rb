@@ -86,23 +86,23 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'code' => :'code',
-        :'related_group_id' => :'related_group_id',
+        :'related_group_id' => :'relatedGroupId',
         :'specimen' => :'specimen',
         :'value' => :'value',
-        :'value_type' => :'value_type',
-        :'completion_date_time' => :'completion_date_time',
+        :'value_type' => :'valueType',
+        :'completion_date_time' => :'completionDateTime',
         :'report' => :'report',
         :'units' => :'units',
         :'notes' => :'notes',
-        :'abnormal_flag' => :'abnormal_flag',
+        :'abnormal_flag' => :'abnormalFlag',
         :'status' => :'status',
-        :'primary_results_interpreter' => :'primary_results_interpreter',
+        :'primary_results_interpreter' => :'primaryResultsInterpreter',
         :'producer' => :'producer',
         :'performer' => :'performer',
-        :'reference_range' => :'reference_range',
-        :'observation_method' => :'observation_method',
-        :'producer_order_id' => :'producer_order_id',
-        :'finding_value' => :'finding_value'
+        :'reference_range' => :'referenceRange',
+        :'observation_method' => :'observationMethod',
+        :'producer_order_id' => :'producerOrderId',
+        :'finding_value' => :'findingValue'
       }
     end
 

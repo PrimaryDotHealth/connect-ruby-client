@@ -74,16 +74,16 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'plan' => :'plan',
-        :'member_number' => :'member_number',
+        :'member_number' => :'memberNumber',
         :'company' => :'company',
-        :'group_number' => :'group_number',
-        :'group_name' => :'group_name',
-        :'effective_date' => :'effective_date',
-        :'expiration_date' => :'expiration_date',
-        :'policy_number' => :'policy_number',
+        :'group_number' => :'groupNumber',
+        :'group_name' => :'groupName',
+        :'effective_date' => :'effectiveDate',
+        :'expiration_date' => :'expirationDate',
+        :'policy_number' => :'policyNumber',
         :'priority' => :'priority',
-        :'agreement_type' => :'agreement_type',
-        :'coverage_type' => :'coverage_type',
+        :'agreement_type' => :'agreementType',
+        :'coverage_type' => :'coverageType',
         :'insured' => :'insured'
       }
     end

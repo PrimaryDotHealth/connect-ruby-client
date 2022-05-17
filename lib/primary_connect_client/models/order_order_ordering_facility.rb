@@ -27,7 +27,7 @@ module PrimaryConnectClient
       {
         :'name' => :'name',
         :'address' => :'address',
-        :'phone_numbers' => :'phone_numbers'
+        :'phone_numbers' => :'phoneNumbers'
       }
     end
 
