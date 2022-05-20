@@ -19,6 +19,7 @@ docs/Meta.md
 docs/MetaDestinations.md
 docs/MetaMessage.md
 docs/MetaSource.md
+docs/MetaTransmission.md
 docs/Name.md
 docs/Order.md
 docs/OrderIds.md
@@ -64,6 +65,7 @@ lib/primary_connect_client/models/meta.rb
 lib/primary_connect_client/models/meta_destinations.rb
 lib/primary_connect_client/models/meta_message.rb
 lib/primary_connect_client/models/meta_source.rb
+lib/primary_connect_client/models/meta_transmission.rb
 lib/primary_connect_client/models/name.rb
 lib/primary_connect_client/models/order.rb
 lib/primary_connect_client/models/order_ids.rb
@@ -108,6 +110,7 @@ spec/models/meta_destinations_spec.rb
 spec/models/meta_message_spec.rb
 spec/models/meta_source_spec.rb
 spec/models/meta_spec.rb
+spec/models/meta_transmission_spec.rb
 spec/models/name_spec.rb
 spec/models/order_ids_spec.rb
 spec/models/order_order_clinical_info_spec.rb

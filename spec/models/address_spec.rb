@@ -25,13 +25,13 @@ describe PrimaryConnectClient::Address do
       expect(instance).to be_instance_of(PrimaryConnectClient::Address)
     end
   end
-  describe 'test attribute "street_address_1"' do
+  describe 'test attribute "street_address1"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "street_address_2"' do
+  describe 'test attribute "street_address2"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

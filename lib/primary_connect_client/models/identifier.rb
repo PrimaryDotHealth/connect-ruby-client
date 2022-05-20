@@ -24,7 +24,7 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'id' => :'id',
-        :'id_type' => :'id_type'
+        :'id_type' => :'idType'
       }
     end
 

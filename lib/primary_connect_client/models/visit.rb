@@ -43,13 +43,13 @@ module PrimaryConnectClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'visit_number' => :'visit_number',
-        :'account_number' => :'account_number',
-        :'patient_class' => :'patient_class',
-        :'visit_date_time' => :'visit_date_time',
-        :'attending_provider' => :'attending_provider',
-        :'consulting_provider' => :'consulting_provider',
-        :'referring_provider' => :'referring_provider',
+        :'visit_number' => :'visitNumber',
+        :'account_number' => :'accountNumber',
+        :'patient_class' => :'patientClass',
+        :'visit_date_time' => :'visitDateTime',
+        :'attending_provider' => :'attendingProvider',
+        :'consulting_provider' => :'consultingProvider',
+        :'referring_provider' => :'referringProvider',
         :'guarantor' => :'guarantor',
         :'insurances' => :'insurances',
         :'location' => :'location'

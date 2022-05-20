@@ -40,8 +40,8 @@ module PrimaryConnectClient
         :'name' => :'name',
         :'credentials' => :'credentials',
         :'address' => :'address',
-        :'email_addresses' => :'email_addresses',
-        :'phone_numbers' => :'phone_numbers',
+        :'email_addresses' => :'emailAddresses',
+        :'phone_numbers' => :'phoneNumbers',
         :'location' => :'location'
       }
     end

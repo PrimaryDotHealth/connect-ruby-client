@@ -25,7 +25,7 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'name' => :'name',
-        :'phone_numbers' => :'phone_numbers',
+        :'phone_numbers' => :'phoneNumbers',
         :'address' => :'address'
       }
     end

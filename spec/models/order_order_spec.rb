@@ -155,6 +155,12 @@ describe PrimaryConnectClient::OrderOrder do
     end
   end
 
+  describe 'test attribute "external_ids"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "results"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

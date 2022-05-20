@@ -14,34 +14,13 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Address
-    attr_accessor :street_address1
-
-    attr_accessor :street_address2
-
-    attr_accessor :city
-
-    attr_accessor :state_code
-
-    attr_accessor :zip
-
-    attr_accessor :county
-
-    attr_accessor :country_code
-
-    attr_accessor :time_zone
+  class MetaTransmission
+    attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'street_address1' => :'streetAddress1',
-        :'street_address2' => :'streetAddress2',
-        :'city' => :'city',
-        :'state_code' => :'stateCode',
-        :'zip' => :'zip',
-        :'county' => :'county',
-        :'country_code' => :'countryCode',
-        :'time_zone' => :'timeZone'
+        :'id' => :'id'
       }
     end
 
@@ -53,14 +32,7 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'street_address1' => :'String',
-        :'street_address2' => :'String',
-        :'city' => :'String',
-        :'state_code' => :'String',
-        :'zip' => :'String',
-        :'county' => :'String',
-        :'country_code' => :'String',
-        :'time_zone' => :'String'
+        :'id' => :'String'
       }
     end
 
@@ -74,47 +46,19 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Address` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::MetaTransmission` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Address`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::MetaTransmission`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'street_address1')
-        self.street_address1 = attributes[:'street_address1']
-      end
-
-      if attributes.key?(:'street_address2')
-        self.street_address2 = attributes[:'street_address2']
-      end
-
-      if attributes.key?(:'city')
-        self.city = attributes[:'city']
-      end
-
-      if attributes.key?(:'state_code')
-        self.state_code = attributes[:'state_code']
-      end
-
-      if attributes.key?(:'zip')
-        self.zip = attributes[:'zip']
-      end
-
-      if attributes.key?(:'county')
-        self.county = attributes[:'county']
-      end
-
-      if attributes.key?(:'country_code')
-        self.country_code = attributes[:'country_code']
-      end
-
-      if attributes.key?(:'time_zone')
-        self.time_zone = attributes[:'time_zone']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -136,14 +80,7 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          street_address1 == o.street_address1 &&
-          street_address2 == o.street_address2 &&
-          city == o.city &&
-          state_code == o.state_code &&
-          zip == o.zip &&
-          county == o.county &&
-          country_code == o.country_code &&
-          time_zone == o.time_zone
+          id == o.id
     end
 
     # @see the `==` method
@@ -155,7 +92,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [street_address1, street_address2, city, state_code, zip, county, country_code, time_zone].hash
+      [id].hash
     end
 
     # Builds the object from hash

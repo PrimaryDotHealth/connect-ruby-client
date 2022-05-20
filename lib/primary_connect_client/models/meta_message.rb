@@ -17,10 +17,13 @@ module PrimaryConnectClient
   class MetaMessage
     attr_accessor :id
 
+    attr_accessor :order_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'id' => :'id',
+        :'order_id' => :'orderId'
       }
     end
 
@@ -32,7 +35,8 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'id' => :'String',
+        :'order_id' => :'String'
       }
     end
 
@@ -60,6 +64,10 @@ module PrimaryConnectClient
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
+
+      if attributes.key?(:'order_id')
+        self.order_id = attributes[:'order_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -80,7 +88,8 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          id == o.id &&
+          order_id == o.order_id
     end
 
     # @see the `==` method
@@ -92,7 +101,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id].hash
+      [id, order_id].hash
     end
 
     # Builds the object from hash
