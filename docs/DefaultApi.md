@@ -4,6 +4,7 @@ All URIs are relative to *https://connect.primary.health*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**cancel_order**](DefaultApi.md#cancel_order) | **DELETE** /api/v1/orders/{id} | cancel order |
 | [**create_order**](DefaultApi.md#create_order) | **POST** /api/v1/orders | create order |
 | [**create_result**](DefaultApi.md#create_result) | **POST** /api/v1/orders/{order_id}/results | create result |
 | [**get_lab_report**](DefaultApi.md#get_lab_report) | **GET** /api/v1/results/{result_id}/lab_report | show lab report |
@@ -12,6 +13,72 @@ All URIs are relative to *https://connect.primary.health*
 | [**list_orders**](DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders |
 | [**list_results**](DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results |
 | [**update_order**](DefaultApi.md#update_order) | **PUT** /api/v1/orders/{id} | update order |
+
+
+## cancel_order
+
+> cancel_order(id)
+
+cancel order
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Order ID
+
+begin
+  # cancel order
+  api_instance.cancel_order(id)
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->cancel_order: #{e}"
+end
+```
+
+#### Using the cancel_order_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> cancel_order_with_http_info(id)
+
+```ruby
+begin
+  # cancel order
+  data, status_code, headers = api_instance.cancel_order_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->cancel_order_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Order ID |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## create_order
@@ -238,7 +305,7 @@ PrimaryConnectClient.configure do |config|
 end
 
 api_instance = PrimaryConnectClient::DefaultApi.new
-id = 'id_example' # String | id
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Order ID
 
 begin
   # show order
@@ -271,7 +338,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | id |  |
+| **id** | **String** | Order ID |  |
 
 ### Return type
 
@@ -514,7 +581,7 @@ PrimaryConnectClient.configure do |config|
 end
 
 api_instance = PrimaryConnectClient::DefaultApi.new
-id = 'id_example' # String | id
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Order ID
 opts = {
   order: PrimaryConnectClient::Order.new # Order | 
 }
@@ -550,7 +617,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | id |  |
+| **id** | **String** | Order ID |  |
 | **order** | [**Order**](Order.md) |  | [optional] |
 
 ### Return type

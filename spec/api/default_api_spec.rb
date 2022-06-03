@@ -32,6 +32,17 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for cancel_order
+  # cancel order
+  # @param id Order ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'cancel_order test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_order
   # create order
   # @param [Hash] opts the optional parameters
@@ -68,7 +79,7 @@ describe 'DefaultApi' do
 
   # unit tests for get_order
   # show order
-  # @param id id
+  # @param id Order ID
   # @param [Hash] opts the optional parameters
   # @return [OrderWithEventErrors]
   describe 'get_order test' do
@@ -114,7 +125,7 @@ describe 'DefaultApi' do
 
   # unit tests for update_order
   # update order
-  # @param id id
+  # @param id Order ID
   # @param [Hash] opts the optional parameters
   # @option opts [Order] :order 
   # @return [OrderIds]

@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.0
+
+- Added cancel_order
+
 ## 1.0.1
 
 - Updated models to use camelCased keys
