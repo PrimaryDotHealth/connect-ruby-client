@@ -14,29 +14,21 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Location
-    # E.g. Clinic, Department, Home, Nursing Unit, Provider's Office, Phone
-    attr_accessor :type
+  class V2Medication
+    # Lot number product component
+    attr_accessor :lot_number
 
-    attr_accessor :facility
+    # Product expiration date
+    attr_accessor :expiration_date
 
-    attr_accessor :department
-
-    attr_accessor :room
-
-    attr_accessor :bed
-
-    attr_accessor :floor
+    attr_accessor :manufacturer
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'facility' => :'facility',
-        :'department' => :'department',
-        :'room' => :'room',
-        :'bed' => :'bed',
-        :'floor' => :'floor'
+        :'lot_number' => :'lot_number',
+        :'expiration_date' => :'expiration_date',
+        :'manufacturer' => :'manufacturer'
       }
     end
 
@@ -48,12 +40,9 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'facility' => :'String',
-        :'department' => :'String',
-        :'room' => :'String',
-        :'bed' => :'String',
-        :'floor' => :'String'
+        :'lot_number' => :'String',
+        :'expiration_date' => :'Time',
+        :'manufacturer' => :'CodedValue'
       }
     end
 
@@ -67,39 +56,27 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Location` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::V2Medication` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Location`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::V2Medication`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'lot_number')
+        self.lot_number = attributes[:'lot_number']
       end
 
-      if attributes.key?(:'facility')
-        self.facility = attributes[:'facility']
+      if attributes.key?(:'expiration_date')
+        self.expiration_date = attributes[:'expiration_date']
       end
 
-      if attributes.key?(:'department')
-        self.department = attributes[:'department']
-      end
-
-      if attributes.key?(:'room')
-        self.room = attributes[:'room']
-      end
-
-      if attributes.key?(:'bed')
-        self.bed = attributes[:'bed']
-      end
-
-      if attributes.key?(:'floor')
-        self.floor = attributes[:'floor']
+      if attributes.key?(:'manufacturer')
+        self.manufacturer = attributes[:'manufacturer']
       end
     end
 
@@ -121,12 +98,9 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          facility == o.facility &&
-          department == o.department &&
-          room == o.room &&
-          bed == o.bed &&
-          floor == o.floor
+          lot_number == o.lot_number &&
+          expiration_date == o.expiration_date &&
+          manufacturer == o.manufacturer
     end
 
     # @see the `==` method
@@ -138,7 +112,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, facility, department, room, bed, floor].hash
+      [lot_number, expiration_date, manufacturer].hash
     end
 
     # Builds the object from hash

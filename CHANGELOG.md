@@ -1,8 +1,14 @@
 # Change Log
 
+## 1.2.0
+
+- Updated models with `primary_connect_proto` 0.12.0
+- Restored strict dependency on `primary_connect_proto` due to
+models having to match the proto definition
+
 ## 1.1.0
 
-- Added cancel_order
+- Added `cancel_order`
 
 ## 1.0.1
 

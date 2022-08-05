@@ -14,29 +14,34 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Location
-    # E.g. Clinic, Department, Home, Nursing Unit, Provider's Office, Phone
-    attr_accessor :type
+  class V2Dosage
+    attr_accessor :site
 
-    attr_accessor :facility
+    attr_accessor :route
 
-    attr_accessor :department
+    attr_accessor :method
 
-    attr_accessor :room
+    # Amount of medication per dose
+    attr_accessor :dose
 
-    attr_accessor :bed
+    attr_accessor :units
 
-    attr_accessor :floor
+    # Dose number administered within series_recommended
+    attr_accessor :series_number
+
+    # Number of recommended doses in a prescribed series
+    attr_accessor :series_recommended
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'facility' => :'facility',
-        :'department' => :'department',
-        :'room' => :'room',
-        :'bed' => :'bed',
-        :'floor' => :'floor'
+        :'site' => :'site',
+        :'route' => :'route',
+        :'method' => :'method',
+        :'dose' => :'dose',
+        :'units' => :'units',
+        :'series_number' => :'series_number',
+        :'series_recommended' => :'series_recommended'
       }
     end
 
@@ -48,12 +53,13 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'facility' => :'String',
-        :'department' => :'String',
-        :'room' => :'String',
-        :'bed' => :'String',
-        :'floor' => :'String'
+        :'site' => :'CodedValue',
+        :'route' => :'CodedValue',
+        :'method' => :'CodedValue',
+        :'dose' => :'String',
+        :'units' => :'CodedValue',
+        :'series_number' => :'String',
+        :'series_recommended' => :'String'
       }
     end
 
@@ -67,39 +73,43 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Location` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::V2Dosage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Location`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::V2Dosage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'site')
+        self.site = attributes[:'site']
       end
 
-      if attributes.key?(:'facility')
-        self.facility = attributes[:'facility']
+      if attributes.key?(:'route')
+        self.route = attributes[:'route']
       end
 
-      if attributes.key?(:'department')
-        self.department = attributes[:'department']
+      if attributes.key?(:'method')
+        self.method = attributes[:'method']
       end
 
-      if attributes.key?(:'room')
-        self.room = attributes[:'room']
+      if attributes.key?(:'dose')
+        self.dose = attributes[:'dose']
       end
 
-      if attributes.key?(:'bed')
-        self.bed = attributes[:'bed']
+      if attributes.key?(:'units')
+        self.units = attributes[:'units']
       end
 
-      if attributes.key?(:'floor')
-        self.floor = attributes[:'floor']
+      if attributes.key?(:'series_number')
+        self.series_number = attributes[:'series_number']
+      end
+
+      if attributes.key?(:'series_recommended')
+        self.series_recommended = attributes[:'series_recommended']
       end
     end
 
@@ -121,12 +131,13 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          facility == o.facility &&
-          department == o.department &&
-          room == o.room &&
-          bed == o.bed &&
-          floor == o.floor
+          site == o.site &&
+          route == o.route &&
+          method == o.method &&
+          dose == o.dose &&
+          units == o.units &&
+          series_number == o.series_number &&
+          series_recommended == o.series_recommended
     end
 
     # @see the `==` method
@@ -138,7 +149,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, facility, department, room, bed, floor].hash
+      [site, route, method, dose, units, series_number, series_recommended].hash
     end
 
     # Builds the object from hash

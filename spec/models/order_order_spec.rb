@@ -40,7 +40,7 @@ describe PrimaryConnectClient::OrderOrder do
   describe 'test attribute "status"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED"])
       # validator.allowable_values.each do |value|
       #   expect { instance.status = value }.not_to raise_error
       # end
@@ -59,6 +59,12 @@ describe PrimaryConnectClient::OrderOrder do
     end
   end
 
+  describe 'test attribute "collection_start_date_time"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "completion_date_time"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,6 +78,12 @@ describe PrimaryConnectClient::OrderOrder do
   end
 
   describe 'test attribute "specimen"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "medication_administrations"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -14,29 +14,33 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Location
-    # E.g. Clinic, Department, Home, Nursing Unit, Provider's Office, Phone
-    attr_accessor :type
+  class V2Device
+    # Identifier used to identify the device
+    attr_accessor :device_id
 
-    attr_accessor :facility
+    attr_accessor :manufacturer
 
-    attr_accessor :department
+    attr_accessor :model_number
 
-    attr_accessor :room
+    attr_accessor :serial_number
 
-    attr_accessor :bed
+    attr_accessor :address
 
-    attr_accessor :floor
+    attr_accessor :location
+
+    # Arbitrary key/value pairs for Device specific use
+    attr_accessor :config
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'facility' => :'facility',
-        :'department' => :'department',
-        :'room' => :'room',
-        :'bed' => :'bed',
-        :'floor' => :'floor'
+        :'device_id' => :'device_id',
+        :'manufacturer' => :'manufacturer',
+        :'model_number' => :'model_number',
+        :'serial_number' => :'serial_number',
+        :'address' => :'address',
+        :'location' => :'location',
+        :'config' => :'config'
       }
     end
 
@@ -48,12 +52,13 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'facility' => :'String',
-        :'department' => :'String',
-        :'room' => :'String',
-        :'bed' => :'String',
-        :'floor' => :'String'
+        :'device_id' => :'Array<Identifier>',
+        :'manufacturer' => :'String',
+        :'model_number' => :'String',
+        :'serial_number' => :'String',
+        :'address' => :'Address',
+        :'location' => :'Location',
+        :'config' => :'Object'
       }
     end
 
@@ -67,39 +72,45 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Location` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::V2Device` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Location`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::V2Device`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'device_id')
+        if (value = attributes[:'device_id']).is_a?(Array)
+          self.device_id = value
+        end
       end
 
-      if attributes.key?(:'facility')
-        self.facility = attributes[:'facility']
+      if attributes.key?(:'manufacturer')
+        self.manufacturer = attributes[:'manufacturer']
       end
 
-      if attributes.key?(:'department')
-        self.department = attributes[:'department']
+      if attributes.key?(:'model_number')
+        self.model_number = attributes[:'model_number']
       end
 
-      if attributes.key?(:'room')
-        self.room = attributes[:'room']
+      if attributes.key?(:'serial_number')
+        self.serial_number = attributes[:'serial_number']
       end
 
-      if attributes.key?(:'bed')
-        self.bed = attributes[:'bed']
+      if attributes.key?(:'address')
+        self.address = attributes[:'address']
       end
 
-      if attributes.key?(:'floor')
-        self.floor = attributes[:'floor']
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
       end
     end
 
@@ -121,12 +132,13 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          facility == o.facility &&
-          department == o.department &&
-          room == o.room &&
-          bed == o.bed &&
-          floor == o.floor
+          device_id == o.device_id &&
+          manufacturer == o.manufacturer &&
+          model_number == o.model_number &&
+          serial_number == o.serial_number &&
+          address == o.address &&
+          location == o.location &&
+          config == o.config
     end
 
     # @see the `==` method
@@ -138,7 +150,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, facility, department, room, bed, floor].hash
+      [device_id, manufacturer, model_number, serial_number, address, location, config].hash
     end
 
     # Builds the object from hash

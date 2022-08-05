@@ -30,6 +30,9 @@ module PrimaryConnectClient
     # Timestamp when the specimen was collected
     attr_accessor :collection_date_time
 
+    # Timestamp when the specimen was collected
+    attr_accessor :collection_start_date_time
+
     # Timestamp when the results were composed into a report and released.
     attr_accessor :completion_date_time
 
@@ -37,6 +40,9 @@ module PrimaryConnectClient
     attr_accessor :expiration_date
 
     attr_accessor :specimen
+
+    # Array of medications administered to the subject
+    attr_accessor :medication_administrations
 
     attr_accessor :procedure
 
@@ -103,9 +109,11 @@ module PrimaryConnectClient
         :'status' => :'status',
         :'transaction_date_time' => :'transactionDateTime',
         :'collection_date_time' => :'collectionDateTime',
+        :'collection_start_date_time' => :'collectionStartDateTime',
         :'completion_date_time' => :'completionDateTime',
         :'expiration_date' => :'expirationDate',
         :'specimen' => :'specimen',
+        :'medication_administrations' => :'medicationAdministrations',
         :'procedure' => :'procedure',
         :'ordering_provider' => :'orderingProvider',
         :'result_copy_providers' => :'resultCopyProviders',
@@ -135,9 +143,11 @@ module PrimaryConnectClient
         :'status' => :'String',
         :'transaction_date_time' => :'Time',
         :'collection_date_time' => :'Time',
+        :'collection_start_date_time' => :'Time',
         :'completion_date_time' => :'Time',
         :'expiration_date' => :'String',
         :'specimen' => :'Specimen',
+        :'medication_administrations' => :'Array<MedicationAdministration>',
         :'procedure' => :'CodedValue',
         :'ordering_provider' => :'Provider',
         :'result_copy_providers' => :'Array<Provider>',
@@ -195,6 +205,10 @@ module PrimaryConnectClient
         self.collection_date_time = attributes[:'collection_date_time']
       end
 
+      if attributes.key?(:'collection_start_date_time')
+        self.collection_start_date_time = attributes[:'collection_start_date_time']
+      end
+
       if attributes.key?(:'completion_date_time')
         self.completion_date_time = attributes[:'completion_date_time']
       end
@@ -205,6 +219,12 @@ module PrimaryConnectClient
 
       if attributes.key?(:'specimen')
         self.specimen = attributes[:'specimen']
+      end
+
+      if attributes.key?(:'medication_administrations')
+        if (value = attributes[:'medication_administrations']).is_a?(Array)
+          self.medication_administrations = value
+        end
       end
 
       if attributes.key?(:'procedure')
@@ -282,7 +302,7 @@ module PrimaryConnectClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW"])
+      status_validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED"])
       return false unless status_validator.valid?(@status)
       priority_validator = EnumAttributeValidator.new('String', ["PRIORITY_UNKNOWN", "PRIORITY_ASAP", "PRIORITY_ROUTINE", "PRIORITY_PREOPERATIVE", "PRIORITY_TIMING_CRITICAL", "PRIORITY_STAT"])
       return false unless priority_validator.valid?(@priority)
@@ -296,7 +316,7 @@ module PrimaryConnectClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW"])
+      validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
@@ -343,9 +363,11 @@ module PrimaryConnectClient
           status == o.status &&
           transaction_date_time == o.transaction_date_time &&
           collection_date_time == o.collection_date_time &&
+          collection_start_date_time == o.collection_start_date_time &&
           completion_date_time == o.completion_date_time &&
           expiration_date == o.expiration_date &&
           specimen == o.specimen &&
+          medication_administrations == o.medication_administrations &&
           procedure == o.procedure &&
           ordering_provider == o.ordering_provider &&
           result_copy_providers == o.result_copy_providers &&
@@ -370,7 +392,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, application_order_id, status, transaction_date_time, collection_date_time, completion_date_time, expiration_date, specimen, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
+      [id, application_order_id, status, transaction_date_time, collection_date_time, collection_start_date_time, completion_date_time, expiration_date, specimen, medication_administrations, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
     end
 
     # Builds the object from hash

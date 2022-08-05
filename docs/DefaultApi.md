@@ -170,7 +170,7 @@ end
 api_instance = PrimaryConnectClient::DefaultApi.new
 order_id = '01FGD44Q6MVCG2VNSMCVX5ZCT6' # String | Order id
 opts = {
-  result: PrimaryConnectClient::Result.new # Result | 
+  results: PrimaryConnectClient::Results.new # Results | 
 }
 
 begin
@@ -205,7 +205,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **order_id** | **String** | Order id |  |
-| **result** | [**Result**](Result.md) |  | [optional] |
+| **results** | [**Results**](Results.md) |  | [optional] |
 
 ### Return type
 
@@ -445,7 +445,8 @@ end
 api_instance = PrimaryConnectClient::DefaultApi.new
 opts = {
   last_order_id: '01FGD30NTPNNZE9MKGMWZGHGTZ', # String | Paginate orders with order id. 26 character, sortable id.
-  state: 'new,resulted' # String | Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
+  state: 'new,resulted', # String | Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
+  specimen_id: 'PB1234567' # String | Find an order by specimen/accession id. If found, will redirect to show order endpoint.
 }
 
 begin
@@ -481,6 +482,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **last_order_id** | **String** | Paginate orders with order id. 26 character, sortable id. | [optional] |
 | **state** | **String** | Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable] | [optional] |
+| **specimen_id** | **String** | Find an order by specimen/accession id. If found, will redirect to show order endpoint. | [optional] |
 
 ### Return type
 

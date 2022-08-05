@@ -14,29 +14,37 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Location
-    # E.g. Clinic, Department, Home, Nursing Unit, Provider's Office, Phone
-    attr_accessor :type
+  class MedicationAdministration
+    attr_accessor :identifier
 
-    attr_accessor :facility
+    # Codes for the medication administration
+    attr_accessor :administration_codes
 
-    attr_accessor :department
+    # Administration start date of medication
+    attr_accessor :administration_start_time
 
-    attr_accessor :room
+    # Administration end date of medication
+    attr_accessor :administration_end_time
 
-    attr_accessor :bed
+    attr_accessor :medication
 
-    attr_accessor :floor
+    attr_accessor :dosage
+
+    attr_accessor :refusal_reason
+
+    attr_accessor :administering_provider
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'facility' => :'facility',
-        :'department' => :'department',
-        :'room' => :'room',
-        :'bed' => :'bed',
-        :'floor' => :'floor'
+        :'identifier' => :'identifier',
+        :'administration_codes' => :'administrationCodes',
+        :'administration_start_time' => :'administrationStartTime',
+        :'administration_end_time' => :'administrationEndTime',
+        :'medication' => :'medication',
+        :'dosage' => :'dosage',
+        :'refusal_reason' => :'refusalReason',
+        :'administering_provider' => :'administeringProvider'
       }
     end
 
@@ -48,12 +56,14 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'facility' => :'String',
-        :'department' => :'String',
-        :'room' => :'String',
-        :'bed' => :'String',
-        :'floor' => :'String'
+        :'identifier' => :'Identifier',
+        :'administration_codes' => :'Array<CodedValue>',
+        :'administration_start_time' => :'Time',
+        :'administration_end_time' => :'Time',
+        :'medication' => :'Medication',
+        :'dosage' => :'Dosage',
+        :'refusal_reason' => :'CodedValue',
+        :'administering_provider' => :'Provider'
       }
     end
 
@@ -67,39 +77,49 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Location` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::MedicationAdministration` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Location`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::MedicationAdministration`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'identifier')
+        self.identifier = attributes[:'identifier']
       end
 
-      if attributes.key?(:'facility')
-        self.facility = attributes[:'facility']
+      if attributes.key?(:'administration_codes')
+        if (value = attributes[:'administration_codes']).is_a?(Array)
+          self.administration_codes = value
+        end
       end
 
-      if attributes.key?(:'department')
-        self.department = attributes[:'department']
+      if attributes.key?(:'administration_start_time')
+        self.administration_start_time = attributes[:'administration_start_time']
       end
 
-      if attributes.key?(:'room')
-        self.room = attributes[:'room']
+      if attributes.key?(:'administration_end_time')
+        self.administration_end_time = attributes[:'administration_end_time']
       end
 
-      if attributes.key?(:'bed')
-        self.bed = attributes[:'bed']
+      if attributes.key?(:'medication')
+        self.medication = attributes[:'medication']
       end
 
-      if attributes.key?(:'floor')
-        self.floor = attributes[:'floor']
+      if attributes.key?(:'dosage')
+        self.dosage = attributes[:'dosage']
+      end
+
+      if attributes.key?(:'refusal_reason')
+        self.refusal_reason = attributes[:'refusal_reason']
+      end
+
+      if attributes.key?(:'administering_provider')
+        self.administering_provider = attributes[:'administering_provider']
       end
     end
 
@@ -121,12 +141,14 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          facility == o.facility &&
-          department == o.department &&
-          room == o.room &&
-          bed == o.bed &&
-          floor == o.floor
+          identifier == o.identifier &&
+          administration_codes == o.administration_codes &&
+          administration_start_time == o.administration_start_time &&
+          administration_end_time == o.administration_end_time &&
+          medication == o.medication &&
+          dosage == o.dosage &&
+          refusal_reason == o.refusal_reason &&
+          administering_provider == o.administering_provider
     end
 
     # @see the `==` method
@@ -138,7 +160,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, facility, department, room, bed, floor].hash
+      [identifier, administration_codes, administration_start_time, administration_end_time, medication, dosage, refusal_reason, administering_provider].hash
     end
 
     # Builds the object from hash

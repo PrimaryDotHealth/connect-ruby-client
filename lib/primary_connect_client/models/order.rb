@@ -17,6 +17,8 @@ module PrimaryConnectClient
   class Order
     attr_accessor :patient
 
+    attr_accessor :subject
+
     attr_accessor :visit
 
     attr_accessor :meta
@@ -27,6 +29,7 @@ module PrimaryConnectClient
     def self.attribute_map
       {
         :'patient' => :'patient',
+        :'subject' => :'subject',
         :'visit' => :'visit',
         :'meta' => :'meta',
         :'order' => :'order'
@@ -42,6 +45,7 @@ module PrimaryConnectClient
     def self.openapi_types
       {
         :'patient' => :'Patient',
+        :'subject' => :'Subject',
         :'visit' => :'Visit',
         :'meta' => :'Meta',
         :'order' => :'OrderOrder'
@@ -51,6 +55,7 @@ module PrimaryConnectClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'subject',
       ])
     end
 
@@ -71,6 +76,10 @@ module PrimaryConnectClient
 
       if attributes.key?(:'patient')
         self.patient = attributes[:'patient']
+      end
+
+      if attributes.key?(:'subject')
+        self.subject = attributes[:'subject']
       end
 
       if attributes.key?(:'visit')
@@ -105,6 +114,7 @@ module PrimaryConnectClient
       return true if self.equal?(o)
       self.class == o.class &&
           patient == o.patient &&
+          subject == o.subject &&
           visit == o.visit &&
           meta == o.meta &&
           order == o.order
@@ -119,7 +129,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [patient, visit, meta, order].hash
+      [patient, subject, visit, meta, order].hash
     end
 
     # Builds the object from hash
