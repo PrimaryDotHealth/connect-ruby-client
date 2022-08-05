@@ -58,7 +58,7 @@ describe 'DefaultApi' do
   # create result
   # @param order_id Order id
   # @param [Hash] opts the optional parameters
-  # @option opts [Result] :result 
+  # @option opts [Results] :results 
   # @return [ResultIds]
   describe 'create_result test' do
     it 'should work' do
@@ -105,6 +105,7 @@ describe 'DefaultApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
   # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
+  # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
   # @return [Orders]
   describe 'list_orders test' do
     it 'should work' do

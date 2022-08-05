@@ -9,9 +9,11 @@
 | **status** | **String** | The status of an order. | [optional] |
 | **transaction_date_time** | **Time** | Timestamp when the order was placed | [optional] |
 | **collection_date_time** | **Time** | Timestamp when the specimen was collected | [optional] |
+| **collection_start_date_time** | **Time** | Timestamp when the specimen was collected | [optional] |
 | **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released. | [optional] |
 | **expiration_date** | **String** | YYYY-MM-DD, Date when the order becomes invalid | [optional] |
 | **specimen** | [**Specimen**](Specimen.md) |  | [optional] |
+| **medication_administrations** | [**Array&lt;MedicationAdministration&gt;**](MedicationAdministration.md) | Array of medications administered to the subject | [optional] |
 | **procedure** | [**CodedValue**](CodedValue.md) |  | [optional] |
 | **ordering_provider** | [**Provider**](Provider.md) |  | [optional] |
 | **result_copy_providers** | [**Array&lt;Provider&gt;**](Provider.md) | Array of providers to be copied on the results | [optional] |
@@ -37,9 +39,11 @@ instance = PrimaryConnectClient::OrderOrder.new(
   status: null,
   transaction_date_time: 2021-07-10T12:35:45-07:00,
   collection_date_time: 2021-07-10T12:35:45-07:00,
+  collection_start_date_time: 2021-07-10T12:35:45-07:00,
   completion_date_time: 2021-07-10T12:35:45-07:00,
   expiration_date: 2022-05-23,
   specimen: null,
+  medication_administrations: null,
   procedure: null,
   ordering_provider: null,
   result_copy_providers: null,

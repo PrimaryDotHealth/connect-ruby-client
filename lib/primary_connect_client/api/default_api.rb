@@ -145,7 +145,7 @@ module PrimaryConnectClient
     # create result
     # @param order_id [String] Order id
     # @param [Hash] opts the optional parameters
-    # @option opts [Result] :result 
+    # @option opts [Results] :results 
     # @return [ResultIds]
     def create_result(order_id, opts = {})
       data, _status_code, _headers = create_result_with_http_info(order_id, opts)
@@ -155,7 +155,7 @@ module PrimaryConnectClient
     # create result
     # @param order_id [String] Order id
     # @param [Hash] opts the optional parameters
-    # @option opts [Result] :result 
+    # @option opts [Results] :results 
     # @return [Array<(ResultIds, Integer, Hash)>] ResultIds data, response status code and response headers
     def create_result_with_http_info(order_id, opts = {})
       if @api_client.config.debugging
@@ -185,7 +185,7 @@ module PrimaryConnectClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'result'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'results'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'ResultIds'
@@ -397,6 +397,7 @@ module PrimaryConnectClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
     # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
+    # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
     # @return [Orders]
     def list_orders(opts = {})
       data, _status_code, _headers = list_orders_with_http_info(opts)
@@ -407,6 +408,7 @@ module PrimaryConnectClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
     # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
+    # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
     # @return [Array<(Orders, Integer, Hash)>] Orders data, response status code and response headers
     def list_orders_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -419,6 +421,7 @@ module PrimaryConnectClient
       query_params = opts[:query_params] || {}
       query_params[:'last_order_id'] = opts[:'last_order_id'] if !opts[:'last_order_id'].nil?
       query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
+      query_params[:'specimen_id'] = opts[:'specimen_id'] if !opts[:'specimen_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

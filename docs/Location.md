@@ -9,6 +9,7 @@
 | **department** | **String** |  | [optional] |
 | **room** | **String** |  | [optional] |
 | **bed** | **String** |  | [optional] |
+| **floor** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = PrimaryConnectClient::Location.new(
   facility: Community Hospital,
   department: null,
   room: 136,
-  bed: B
+  bed: B,
+  floor: 10
 )
 ```
 
