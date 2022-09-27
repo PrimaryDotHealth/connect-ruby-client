@@ -24,7 +24,7 @@ module PrimaryConnectClient
     # Patient class is used in many EHRs to determine where to put the patient. E.g. Inpatient, Outpatient, Emergency
     attr_accessor :patient_class
 
-    # Timestamp of visit or the arrival time of the visit or admission.
+    # Timestamp of visit or the arrival time of the visit or admission (ISO-8601)
     attr_accessor :visit_date_time
 
     attr_accessor :attending_provider

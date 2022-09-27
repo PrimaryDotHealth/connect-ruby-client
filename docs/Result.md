@@ -9,7 +9,7 @@
 | **specimen** | [**Specimen**](Specimen.md) |  | [optional] |
 | **value** | **String** | Value of the result component | [optional] |
 | **value_type** | **String** | Data type for the result value | [optional] |
-| **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released. | [optional] |
+| **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released (ISO-8601) | [optional] |
 | **report** | [**ResultReport**](ResultReport.md) |  | [optional] |
 | **units** | **String** | Units of the result | [optional] |
 | **notes** | **Array&lt;String&gt;** | Notes about the result component/observation | [optional] |
