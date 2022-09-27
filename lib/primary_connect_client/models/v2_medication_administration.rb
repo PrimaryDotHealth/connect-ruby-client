@@ -20,10 +20,10 @@ module PrimaryConnectClient
     # Codes for the medication administration
     attr_accessor :administration_codes
 
-    # Administration start date of medication
+    # Administration start date of medication (ISO-8601)
     attr_accessor :administration_start_time
 
-    # Administration end date of medication
+    # Administration end date of medication (ISO-8601)
     attr_accessor :administration_end_time
 
     attr_accessor :medication

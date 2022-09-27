@@ -18,7 +18,7 @@ module PrimaryConnectClient
     # Lot number product component
     attr_accessor :lot_number
 
-    # Product expiration date
+    # Product expiration date (ISO-8601)
     attr_accessor :expiration_date
 
     attr_accessor :manufacturer

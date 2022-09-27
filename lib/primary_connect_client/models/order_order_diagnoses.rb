@@ -20,7 +20,7 @@ module PrimaryConnectClient
     # Type of the diagnosis
     attr_accessor :type
 
-    # Timestamp of the the diagnosis was documented
+    # Timestamp of the the diagnosis was documented (ISO-8601)
     attr_accessor :documented_date_time
 
     class EnumAttributeValidator

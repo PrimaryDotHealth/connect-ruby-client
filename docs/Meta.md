@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **event_type** | **String** |  | [optional] |
-| **event_date_and_time** | **Time** |  | [optional] |
+| **event_date_and_time** | **Time** | ISO-8601 | [optional] |
 | **test** | **Boolean** |  | [optional] |
 | **source** | [**MetaSource**](MetaSource.md) |  | [optional] |
 | **destinations** | [**Array&lt;MetaDestinations&gt;**](MetaDestinations.md) |  | [optional] |

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **lot_number** | **String** | Lot number product component | [optional] |
-| **expiration_date** | **Time** | Product expiration date | [optional] |
+| **expiration_date** | **Time** | Product expiration date (ISO-8601) | [optional] |
 | **manufacturer** | [**CodedValue**](CodedValue.md) |  | [optional] |
 
 ## Example

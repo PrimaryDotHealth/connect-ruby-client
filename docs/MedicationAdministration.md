@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **identifier** | [**Identifier**](Identifier.md) |  | [optional] |
 | **administration_codes** | [**Array&lt;CodedValue&gt;**](CodedValue.md) | Codes for the medication administration | [optional] |
-| **administration_start_time** | **Time** | Administration start date of medication | [optional] |
-| **administration_end_time** | **Time** | Administration end date of medication | [optional] |
+| **administration_start_time** | **Time** | Administration start date of medication (ISO-8601) | [optional] |
+| **administration_end_time** | **Time** | Administration end date of medication (ISO-8601) | [optional] |
 | **medication** | [**Medication**](Medication.md) |  | [optional] |
 | **dosage** | [**Dosage**](Dosage.md) |  | [optional] |
 | **refusal_reason** | [**CodedValue**](CodedValue.md) |  | [optional] |

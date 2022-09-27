@@ -17,6 +17,7 @@ module PrimaryConnectClient
   class Meta
     attr_accessor :event_type
 
+    # ISO-8601
     attr_accessor :event_date_and_time
 
     attr_accessor :test

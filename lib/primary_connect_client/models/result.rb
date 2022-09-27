@@ -28,7 +28,7 @@ module PrimaryConnectClient
     # Data type for the result value
     attr_accessor :value_type
 
-    # Timestamp when the results were composed into a report and released.
+    # Timestamp when the results were composed into a report and released (ISO-8601)
     attr_accessor :completion_date_time
 
     attr_accessor :report

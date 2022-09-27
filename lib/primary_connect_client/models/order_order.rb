@@ -24,16 +24,16 @@ module PrimaryConnectClient
     # The status of an order.
     attr_accessor :status
 
-    # Timestamp when the order was placed
+    # Timestamp when the order was placed (ISO-8601)
     attr_accessor :transaction_date_time
 
-    # Timestamp when the specimen was collected
+    # Timestamp when the specimen was collected (ISO-8601)
     attr_accessor :collection_date_time
 
-    # Timestamp when the specimen was collected
+    # Timestamp when the specimen was collected (ISO-8601)
     attr_accessor :collection_start_date_time
 
-    # Timestamp when the results were composed into a report and released.
+    # Timestamp when the results were composed into a report and released. (ISO-8601)
     attr_accessor :completion_date_time
 
     # YYYY-MM-DD, Date when the order becomes invalid

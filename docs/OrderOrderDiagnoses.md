@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **code** | [**CodedValue**](CodedValue.md) |  | [optional] |
 | **type** | **String** | Type of the diagnosis | [optional] |
-| **documented_date_time** | **Time** | Timestamp of the the diagnosis was documented | [optional] |
+| **documented_date_time** | **Time** | Timestamp of the the diagnosis was documented (ISO-8601) | [optional] |
 
 ## Example
 

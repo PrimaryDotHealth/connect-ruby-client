@@ -7,10 +7,10 @@
 | **id** | **String** | ID of the order assigned by the placing system | [optional] |
 | **application_order_id** | **String** | ID assigned by the application fulfilling the order | [optional] |
 | **status** | **String** | The status of an order. | [optional] |
-| **transaction_date_time** | **Time** | Timestamp when the order was placed | [optional] |
-| **collection_date_time** | **Time** | Timestamp when the specimen was collected | [optional] |
-| **collection_start_date_time** | **Time** | Timestamp when the specimen was collected | [optional] |
-| **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released. | [optional] |
+| **transaction_date_time** | **Time** | Timestamp when the order was placed (ISO-8601) | [optional] |
+| **collection_date_time** | **Time** | Timestamp when the specimen was collected (ISO-8601) | [optional] |
+| **collection_start_date_time** | **Time** | Timestamp when the specimen was collected (ISO-8601) | [optional] |
+| **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released. (ISO-8601) | [optional] |
 | **expiration_date** | **String** | YYYY-MM-DD, Date when the order becomes invalid | [optional] |
 | **specimen** | [**Specimen**](Specimen.md) |  | [optional] |
 | **medication_administrations** | [**Array&lt;MedicationAdministration&gt;**](MedicationAdministration.md) | Array of medications administered to the subject | [optional] |

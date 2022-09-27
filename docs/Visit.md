@@ -7,7 +7,7 @@
 | **visit_number** | **String** | Unique ID of a single visit | [optional] |
 | **account_number** | **String** | An ID that can span several visits often related to the same issue - pregnancy, surgeries, research study, etc. | [optional] |
 | **patient_class** | **String** | Patient class is used in many EHRs to determine where to put the patient. E.g. Inpatient, Outpatient, Emergency | [optional] |
-| **visit_date_time** | **Time** | Timestamp of visit or the arrival time of the visit or admission. | [optional] |
+| **visit_date_time** | **Time** | Timestamp of visit or the arrival time of the visit or admission (ISO-8601) | [optional] |
 | **attending_provider** | [**Provider**](Provider.md) |  | [optional] |
 | **consulting_provider** | [**Provider**](Provider.md) |  | [optional] |
 | **referring_provider** | [**Provider**](Provider.md) |  | [optional] |
