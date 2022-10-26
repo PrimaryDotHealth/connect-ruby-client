@@ -4,6 +4,8 @@ All URIs are relative to *https://connect.primary.health*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**accession_order**](DefaultApi.md#accession_order) | **PUT** /api/v1/orders/{id}/accession | accession order by ULID |
+| [**accession_order_by_specimen_id**](DefaultApi.md#accession_order_by_specimen_id) | **PUT** /api/v1/orders/accession | accession order by Specimen ID |
 | [**cancel_order**](DefaultApi.md#cancel_order) | **DELETE** /api/v1/orders/{id} | cancel order |
 | [**create_order**](DefaultApi.md#create_order) | **POST** /api/v1/orders | create order |
 | [**create_result**](DefaultApi.md#create_result) | **POST** /api/v1/orders/{order_id}/results | create result |
@@ -13,6 +15,146 @@ All URIs are relative to *https://connect.primary.health*
 | [**list_orders**](DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders |
 | [**list_results**](DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results |
 | [**update_order**](DefaultApi.md#update_order) | **PUT** /api/v1/orders/{id} | update order |
+
+
+## accession_order
+
+> accession_order(id, opts)
+
+accession order by ULID
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Order ID
+opts = {
+  accession: PrimaryConnectClient::Accession.new # Accession | 
+}
+
+begin
+  # accession order by ULID
+  api_instance.accession_order(id, opts)
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->accession_order: #{e}"
+end
+```
+
+#### Using the accession_order_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> accession_order_with_http_info(id, opts)
+
+```ruby
+begin
+  # accession order by ULID
+  data, status_code, headers = api_instance.accession_order_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->accession_order_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Order ID |  |
+| **accession** | [**Accession**](Accession.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## accession_order_by_specimen_id
+
+> accession_order_by_specimen_id(specimen_id, opts)
+
+accession order by Specimen ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+specimen_id = 'PB123456' # String | Specimen ID
+opts = {
+  accession: PrimaryConnectClient::Accession.new # Accession | 
+}
+
+begin
+  # accession order by Specimen ID
+  api_instance.accession_order_by_specimen_id(specimen_id, opts)
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->accession_order_by_specimen_id: #{e}"
+end
+```
+
+#### Using the accession_order_by_specimen_id_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> accession_order_by_specimen_id_with_http_info(specimen_id, opts)
+
+```ruby
+begin
+  # accession order by Specimen ID
+  data, status_code, headers = api_instance.accession_order_by_specimen_id_with_http_info(specimen_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->accession_order_by_specimen_id_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **specimen_id** | **String** | Specimen ID |  |
+| **accession** | [**Accession**](Accession.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## cancel_order

@@ -14,36 +14,14 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Device
-    # List of IDs and types that identify the device
-    attr_accessor :identifiers
-
-    attr_accessor :manufacturer
-
-    attr_accessor :model_number
-
-    attr_accessor :serial_number
-
-    attr_accessor :address
-
-    attr_accessor :location
-
-    # Arbitrary key/value pairs for Device specific use
-    attr_accessor :config
-
-    attr_accessor :model_name
+  class AccessionOrder
+    # Timestamp when the specimen was received by the destination. (ISO-8601)
+    attr_accessor :accession_date_time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'identifiers' => :'identifiers',
-        :'manufacturer' => :'manufacturer',
-        :'model_number' => :'modelNumber',
-        :'serial_number' => :'serialNumber',
-        :'address' => :'address',
-        :'location' => :'location',
-        :'config' => :'config',
-        :'model_name' => :'modelName'
+        :'accession_date_time' => :'accessionDateTime'
       }
     end
 
@@ -55,14 +33,7 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'identifiers' => :'Array<Identifier>',
-        :'manufacturer' => :'String',
-        :'model_number' => :'String',
-        :'serial_number' => :'String',
-        :'address' => :'Address',
-        :'location' => :'Location',
-        :'config' => :'Object',
-        :'model_name' => :'String'
+        :'accession_date_time' => :'Time'
       }
     end
 
@@ -76,49 +47,19 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Device` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::AccessionOrder` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Device`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::AccessionOrder`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'identifiers')
-        if (value = attributes[:'identifiers']).is_a?(Array)
-          self.identifiers = value
-        end
-      end
-
-      if attributes.key?(:'manufacturer')
-        self.manufacturer = attributes[:'manufacturer']
-      end
-
-      if attributes.key?(:'model_number')
-        self.model_number = attributes[:'model_number']
-      end
-
-      if attributes.key?(:'serial_number')
-        self.serial_number = attributes[:'serial_number']
-      end
-
-      if attributes.key?(:'address')
-        self.address = attributes[:'address']
-      end
-
-      if attributes.key?(:'location')
-        self.location = attributes[:'location']
-      end
-
-      if attributes.key?(:'config')
-        self.config = attributes[:'config']
-      end
-
-      if attributes.key?(:'model_name')
-        self.model_name = attributes[:'model_name']
+      if attributes.key?(:'accession_date_time')
+        self.accession_date_time = attributes[:'accession_date_time']
       end
     end
 
@@ -140,14 +81,7 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          identifiers == o.identifiers &&
-          manufacturer == o.manufacturer &&
-          model_number == o.model_number &&
-          serial_number == o.serial_number &&
-          address == o.address &&
-          location == o.location &&
-          config == o.config &&
-          model_name == o.model_name
+          accession_date_time == o.accession_date_time
     end
 
     # @see the `==` method
@@ -159,7 +93,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [identifiers, manufacturer, model_number, serial_number, address, location, config, model_name].hash
+      [accession_date_time].hash
     end
 
     # Builds the object from hash

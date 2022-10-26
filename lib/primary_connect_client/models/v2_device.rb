@@ -15,8 +15,8 @@ require 'time'
 
 module PrimaryConnectClient
   class V2Device
-    # Identifier used to identify the device
-    attr_accessor :device_id
+    # List of IDs and types that identify the device
+    attr_accessor :identifiers
 
     attr_accessor :manufacturer
 
@@ -31,16 +31,19 @@ module PrimaryConnectClient
     # Arbitrary key/value pairs for Device specific use
     attr_accessor :config
 
+    attr_accessor :model_name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'device_id' => :'device_id',
+        :'identifiers' => :'identifiers',
         :'manufacturer' => :'manufacturer',
         :'model_number' => :'model_number',
         :'serial_number' => :'serial_number',
         :'address' => :'address',
         :'location' => :'location',
-        :'config' => :'config'
+        :'config' => :'config',
+        :'model_name' => :'model_name'
       }
     end
 
@@ -52,13 +55,14 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'device_id' => :'Array<Identifier>',
+        :'identifiers' => :'Array<Identifier>',
         :'manufacturer' => :'String',
         :'model_number' => :'String',
         :'serial_number' => :'String',
         :'address' => :'Address',
         :'location' => :'Location',
-        :'config' => :'Object'
+        :'config' => :'Object',
+        :'model_name' => :'String'
       }
     end
 
@@ -83,9 +87,9 @@ module PrimaryConnectClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'device_id')
-        if (value = attributes[:'device_id']).is_a?(Array)
-          self.device_id = value
+      if attributes.key?(:'identifiers')
+        if (value = attributes[:'identifiers']).is_a?(Array)
+          self.identifiers = value
         end
       end
 
@@ -112,6 +116,10 @@ module PrimaryConnectClient
       if attributes.key?(:'config')
         self.config = attributes[:'config']
       end
+
+      if attributes.key?(:'model_name')
+        self.model_name = attributes[:'model_name']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -132,13 +140,14 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          device_id == o.device_id &&
+          identifiers == o.identifiers &&
           manufacturer == o.manufacturer &&
           model_number == o.model_number &&
           serial_number == o.serial_number &&
           address == o.address &&
           location == o.location &&
-          config == o.config
+          config == o.config &&
+          model_name == o.model_name
     end
 
     # @see the `==` method
@@ -150,7 +159,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [device_id, manufacturer, model_number, serial_number, address, location, config].hash
+      [identifiers, manufacturer, model_number, serial_number, address, location, config, model_name].hash
     end
 
     # Builds the object from hash

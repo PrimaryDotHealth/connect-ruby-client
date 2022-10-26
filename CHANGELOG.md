@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.4.0
+
+- Updated dependency on `primary_connect_proto` 0.15.0
+
 ## 1.3.0
 
 - Updated dependency on `primary_connect_proto` 0.13.0

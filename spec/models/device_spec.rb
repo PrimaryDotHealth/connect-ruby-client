@@ -25,7 +25,7 @@ describe PrimaryConnectClient::Device do
       expect(instance).to be_instance_of(PrimaryConnectClient::Device)
     end
   end
-  describe 'test attribute "device_id"' do
+  describe 'test attribute "identifiers"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -62,6 +62,12 @@ describe PrimaryConnectClient::Device do
   end
 
   describe 'test attribute "config"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "model_name"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

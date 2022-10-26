@@ -11,6 +11,7 @@
 | **collection_date_time** | **Time** | Timestamp when the specimen was collected (ISO-8601) | [optional] |
 | **collection_start_date_time** | **Time** | Timestamp when the specimen was collected (ISO-8601) | [optional] |
 | **completion_date_time** | **Time** | Timestamp when the results were composed into a report and released. (ISO-8601) | [optional] |
+| **accession_date_time** | **Time** | Timestamp when the specimen was received by the destination. (ISO-8601) | [optional] |
 | **expiration_date** | **String** | YYYY-MM-DD, Date when the order becomes invalid | [optional] |
 | **specimen** | [**Specimen**](Specimen.md) |  | [optional] |
 | **medication_administrations** | [**Array&lt;MedicationAdministration&gt;**](MedicationAdministration.md) | Array of medications administered to the subject | [optional] |
@@ -41,6 +42,7 @@ instance = PrimaryConnectClient::OrderOrder.new(
   collection_date_time: 2021-07-10T12:35:45-07:00,
   collection_start_date_time: 2021-07-10T12:35:45-07:00,
   completion_date_time: 2021-07-10T12:35:45-07:00,
+  accession_date_time: 2021-07-10T12:35:45-07:00,
   expiration_date: 2022-05-23,
   specimen: null,
   medication_administrations: null,
