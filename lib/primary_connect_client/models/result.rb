@@ -60,6 +60,8 @@ module PrimaryConnectClient
 
     attr_accessor :finding_value
 
+    attr_accessor :resulting_device
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -102,7 +104,8 @@ module PrimaryConnectClient
         :'reference_range' => :'referenceRange',
         :'observation_method' => :'observationMethod',
         :'producer_order_id' => :'producerOrderId',
-        :'finding_value' => :'findingValue'
+        :'finding_value' => :'findingValue',
+        :'resulting_device' => :'resultingDevice'
       }
     end
 
@@ -131,7 +134,8 @@ module PrimaryConnectClient
         :'reference_range' => :'ResultReferenceRange',
         :'observation_method' => :'CodedValue',
         :'producer_order_id' => :'String',
-        :'finding_value' => :'CodedValue'
+        :'finding_value' => :'CodedValue',
+        :'resulting_device' => :'Device'
       }
     end
 
@@ -232,6 +236,10 @@ module PrimaryConnectClient
       if attributes.key?(:'finding_value')
         self.finding_value = attributes[:'finding_value']
       end
+
+      if attributes.key?(:'resulting_device')
+        self.resulting_device = attributes[:'resulting_device']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -305,7 +313,8 @@ module PrimaryConnectClient
           reference_range == o.reference_range &&
           observation_method == o.observation_method &&
           producer_order_id == o.producer_order_id &&
-          finding_value == o.finding_value
+          finding_value == o.finding_value &&
+          resulting_device == o.resulting_device
     end
 
     # @see the `==` method
@@ -317,7 +326,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, related_group_id, specimen, value, value_type, completion_date_time, report, units, notes, abnormal_flag, status, primary_results_interpreter, producer, performer, reference_range, observation_method, producer_order_id, finding_value].hash
+      [code, related_group_id, specimen, value, value_type, completion_date_time, report, units, notes, abnormal_flag, status, primary_results_interpreter, producer, performer, reference_range, observation_method, producer_order_id, finding_value, resulting_device].hash
     end
 
     # Builds the object from hash

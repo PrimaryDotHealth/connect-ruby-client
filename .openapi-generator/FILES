@@ -6,6 +6,8 @@
 Gemfile
 README.md
 Rakefile
+docs/Accession.md
+docs/AccessionOrder.md
 docs/Address.md
 docs/CodedValue.md
 docs/DefaultApi.md
@@ -64,6 +66,8 @@ lib/primary_connect_client/api/default_api.rb
 lib/primary_connect_client/api_client.rb
 lib/primary_connect_client/api_error.rb
 lib/primary_connect_client/configuration.rb
+lib/primary_connect_client/models/accession.rb
+lib/primary_connect_client/models/accession_order.rb
 lib/primary_connect_client/models/address.rb
 lib/primary_connect_client/models/coded_value.rb
 lib/primary_connect_client/models/demographics.rb
@@ -120,6 +124,8 @@ primary_connect_client.gemspec
 spec/api/default_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/accession_order_spec.rb
+spec/models/accession_spec.rb
 spec/models/address_spec.rb
 spec/models/coded_value_spec.rb
 spec/models/demographics_spec.rb

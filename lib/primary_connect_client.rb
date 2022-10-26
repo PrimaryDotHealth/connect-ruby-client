@@ -17,6 +17,8 @@ require 'primary_connect_client/version'
 require 'primary_connect_client/configuration'
 
 # Models
+require 'primary_connect_client/models/accession'
+require 'primary_connect_client/models/accession_order'
 require 'primary_connect_client/models/address'
 require 'primary_connect_client/models/coded_value'
 require 'primary_connect_client/models/demographics'

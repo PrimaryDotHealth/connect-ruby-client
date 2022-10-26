@@ -36,6 +36,9 @@ module PrimaryConnectClient
     # Timestamp when the results were composed into a report and released. (ISO-8601)
     attr_accessor :completion_date_time
 
+    # Timestamp when the specimen was received by the destination. (ISO-8601)
+    attr_accessor :accession_date_time
+
     # YYYY-MM-DD, Date when the order becomes invalid
     attr_accessor :expiration_date
 
@@ -111,6 +114,7 @@ module PrimaryConnectClient
         :'collection_date_time' => :'collectionDateTime',
         :'collection_start_date_time' => :'collectionStartDateTime',
         :'completion_date_time' => :'completionDateTime',
+        :'accession_date_time' => :'accessionDateTime',
         :'expiration_date' => :'expirationDate',
         :'specimen' => :'specimen',
         :'medication_administrations' => :'medicationAdministrations',
@@ -145,6 +149,7 @@ module PrimaryConnectClient
         :'collection_date_time' => :'Time',
         :'collection_start_date_time' => :'Time',
         :'completion_date_time' => :'Time',
+        :'accession_date_time' => :'Time',
         :'expiration_date' => :'String',
         :'specimen' => :'Specimen',
         :'medication_administrations' => :'Array<MedicationAdministration>',
@@ -211,6 +216,10 @@ module PrimaryConnectClient
 
       if attributes.key?(:'completion_date_time')
         self.completion_date_time = attributes[:'completion_date_time']
+      end
+
+      if attributes.key?(:'accession_date_time')
+        self.accession_date_time = attributes[:'accession_date_time']
       end
 
       if attributes.key?(:'expiration_date')
@@ -365,6 +374,7 @@ module PrimaryConnectClient
           collection_date_time == o.collection_date_time &&
           collection_start_date_time == o.collection_start_date_time &&
           completion_date_time == o.completion_date_time &&
+          accession_date_time == o.accession_date_time &&
           expiration_date == o.expiration_date &&
           specimen == o.specimen &&
           medication_administrations == o.medication_administrations &&
@@ -392,7 +402,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, application_order_id, status, transaction_date_time, collection_date_time, collection_start_date_time, completion_date_time, expiration_date, specimen, medication_administrations, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
+      [id, application_order_id, status, transaction_date_time, collection_date_time, collection_start_date_time, completion_date_time, accession_date_time, expiration_date, specimen, medication_administrations, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
     end
 
     # Builds the object from hash

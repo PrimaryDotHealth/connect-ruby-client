@@ -32,6 +32,30 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for accession_order
+  # accession order by ULID
+  # @param id Order ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Accession] :accession 
+  # @return [nil]
+  describe 'accession_order test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for accession_order_by_specimen_id
+  # accession order by Specimen ID
+  # @param specimen_id Specimen ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Accession] :accession 
+  # @return [nil]
+  describe 'accession_order_by_specimen_id test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for cancel_order
   # cancel order
   # @param id Order ID

@@ -245,7 +245,7 @@ module PrimaryConnectClient
     def valid?
       sex_validator = EnumAttributeValidator.new('String', ["SEX_UNKNOWN", "SEX_FEMALE", "SEX_MALE", "SEX_OTHER", "SEX_NON_BINARY", "SEX_PREFER_NOT_TO_DISCLOSE"])
       return false unless sex_validator.valid?(@sex)
-      gender_validator = EnumAttributeValidator.new('String', ["GENDER_UNKNOWN", "GENDER_FEMALE", "GENDER_MALE", "GENDER_OTHER", "GENDER_NON_BINARY", "GENDER_TRANSGENDER_MALE", "GENDER_TRANSGENDER_FEMALE", "GENDER_PREFER_NOT_TO_DISCLOSE"])
+      gender_validator = EnumAttributeValidator.new('String', ["GENDER_UNKNOWN", "GENDER_FEMALE", "GENDER_MALE", "GENDER_OTHER", "GENDER_NON_BINARY", "GENDER_TRANSGENDER_MALE", "GENDER_TRANSGENDER_FEMALE", "GENDER_PREFER_NOT_TO_DISCLOSE", "GENDER_INTERSEX"])
       return false unless gender_validator.valid?(@gender)
       sexual_orientation_validator = EnumAttributeValidator.new('String', ["ORIENTATION_UNKNOWN", "ORIENTATION_HOMOSEXUAL", "ORIENTATION_HETEROSEXUAL", "ORIENTATION_BISEXUAL", "ORIENTATION_QUESTIONING", "ORIENTATION_OTHER", "ORIENTATION_PREFER_NOT_TO_DISCLOSE"])
       return false unless sexual_orientation_validator.valid?(@sexual_orientation)
@@ -269,7 +269,7 @@ module PrimaryConnectClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] gender Object to be assigned
     def gender=(gender)
-      validator = EnumAttributeValidator.new('String', ["GENDER_UNKNOWN", "GENDER_FEMALE", "GENDER_MALE", "GENDER_OTHER", "GENDER_NON_BINARY", "GENDER_TRANSGENDER_MALE", "GENDER_TRANSGENDER_FEMALE", "GENDER_PREFER_NOT_TO_DISCLOSE"])
+      validator = EnumAttributeValidator.new('String', ["GENDER_UNKNOWN", "GENDER_FEMALE", "GENDER_MALE", "GENDER_OTHER", "GENDER_NON_BINARY", "GENDER_TRANSGENDER_MALE", "GENDER_TRANSGENDER_FEMALE", "GENDER_PREFER_NOT_TO_DISCLOSE", "GENDER_INTERSEX"])
       unless validator.valid?(gender)
         fail ArgumentError, "invalid value for \"gender\", must be one of #{validator.allowable_values}."
       end
