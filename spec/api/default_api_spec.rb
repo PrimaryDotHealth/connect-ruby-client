@@ -67,6 +67,16 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for create_measurement
+  # create Measurement
+  # @param [Hash] opts the optional parameters
+  # @return [Ids]
+  describe 'create_measurement test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_order
   # create order
   # @param [Hash] opts the optional parameters
@@ -96,6 +106,17 @@ describe 'DefaultApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'get_lab_report test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for get_measurement
+  # show measurement
+  # @param id Measurement ID
+  # @param [Hash] opts the optional parameters
+  # @return [Measurement]
+  describe 'get_measurement test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

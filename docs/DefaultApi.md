@@ -7,9 +7,11 @@ All URIs are relative to *https://connect.primary.health*
 | [**accession_order**](DefaultApi.md#accession_order) | **PUT** /api/v1/orders/{id}/accession | accession order by ULID |
 | [**accession_order_by_specimen_id**](DefaultApi.md#accession_order_by_specimen_id) | **PUT** /api/v1/orders/accession | accession order by Specimen ID |
 | [**cancel_order**](DefaultApi.md#cancel_order) | **DELETE** /api/v1/orders/{id} | cancel order |
+| [**create_measurement**](DefaultApi.md#create_measurement) | **POST** /api/v1/measurements | create Measurement |
 | [**create_order**](DefaultApi.md#create_order) | **POST** /api/v1/orders | create order |
 | [**create_result**](DefaultApi.md#create_result) | **POST** /api/v1/orders/{order_id}/results | create result |
 | [**get_lab_report**](DefaultApi.md#get_lab_report) | **GET** /api/v1/results/{result_id}/lab_report | show lab report |
+| [**get_measurement**](DefaultApi.md#get_measurement) | **GET** /api/v1/measurements/{id} | show measurement |
 | [**get_order**](DefaultApi.md#get_order) | **GET** /api/v1/orders/{id} | show order |
 | [**list_events**](DefaultApi.md#list_events) | **GET** /api/v1/events | list events |
 | [**list_orders**](DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders |
@@ -223,6 +225,70 @@ nil (empty response body)
 - **Accept**: application/json
 
 
+## create_measurement
+
+> <Ids> create_measurement
+
+create Measurement
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+
+begin
+  # create Measurement
+  result = api_instance.create_measurement
+  p result
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->create_measurement: #{e}"
+end
+```
+
+#### Using the create_measurement_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Ids>, Integer, Hash)> create_measurement_with_http_info
+
+```ruby
+begin
+  # create Measurement
+  data, status_code, headers = api_instance.create_measurement_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Ids>
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->create_measurement_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Ids**](Ids.md)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## create_order
 
 > <OrderIds> create_order(opts)
@@ -418,6 +484,73 @@ end
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_measurement
+
+> <Measurement> get_measurement(id)
+
+show measurement
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Measurement ID
+
+begin
+  # show measurement
+  result = api_instance.get_measurement(id)
+  p result
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->get_measurement: #{e}"
+end
+```
+
+#### Using the get_measurement_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Measurement>, Integer, Hash)> get_measurement_with_http_info(id)
+
+```ruby
+begin
+  # show measurement
+  data, status_code, headers = api_instance.get_measurement_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Measurement>
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->get_measurement_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Measurement ID |  |
+
+### Return type
+
+[**Measurement**](Measurement.md)
 
 ### Authorization
 

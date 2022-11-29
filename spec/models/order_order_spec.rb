@@ -101,6 +101,12 @@ describe PrimaryConnectClient::OrderOrder do
     end
   end
 
+  describe 'test attribute "procedures"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "ordering_provider"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.5.0
+
+- Updated dependency on `primary_connect_proto` 0.17.0
+- Added Measurement API
+- Added Order.Procedures
+
 ## 1.4.0
 
 - Updated dependency on `primary_connect_proto` 0.15.0

@@ -49,6 +49,9 @@ module PrimaryConnectClient
 
     attr_accessor :procedure
 
+    # Array of Procedures ordered
+    attr_accessor :procedures
+
     attr_accessor :ordering_provider
 
     # Array of providers to be copied on the results
@@ -119,6 +122,7 @@ module PrimaryConnectClient
         :'specimen' => :'specimen',
         :'medication_administrations' => :'medicationAdministrations',
         :'procedure' => :'procedure',
+        :'procedures' => :'procedures',
         :'ordering_provider' => :'orderingProvider',
         :'result_copy_providers' => :'resultCopyProviders',
         :'ordering_facility' => :'orderingFacility',
@@ -154,6 +158,7 @@ module PrimaryConnectClient
         :'specimen' => :'Specimen',
         :'medication_administrations' => :'Array<MedicationAdministration>',
         :'procedure' => :'CodedValue',
+        :'procedures' => :'Array<CodedValues>',
         :'ordering_provider' => :'Provider',
         :'result_copy_providers' => :'Array<Provider>',
         :'ordering_facility' => :'OrderOrderOrderingFacility',
@@ -238,6 +243,12 @@ module PrimaryConnectClient
 
       if attributes.key?(:'procedure')
         self.procedure = attributes[:'procedure']
+      end
+
+      if attributes.key?(:'procedures')
+        if (value = attributes[:'procedures']).is_a?(Array)
+          self.procedures = value
+        end
       end
 
       if attributes.key?(:'ordering_provider')
@@ -379,6 +390,7 @@ module PrimaryConnectClient
           specimen == o.specimen &&
           medication_administrations == o.medication_administrations &&
           procedure == o.procedure &&
+          procedures == o.procedures &&
           ordering_provider == o.ordering_provider &&
           result_copy_providers == o.result_copy_providers &&
           ordering_facility == o.ordering_facility &&
@@ -402,7 +414,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, application_order_id, status, transaction_date_time, collection_date_time, collection_start_date_time, completion_date_time, accession_date_time, expiration_date, specimen, medication_administrations, procedure, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
+      [id, application_order_id, status, transaction_date_time, collection_date_time, collection_start_date_time, completion_date_time, accession_date_time, expiration_date, specimen, medication_administrations, procedure, procedures, ordering_provider, result_copy_providers, ordering_facility, priority, diagnoses, clinical_comments, notes, clinical_info, results_status, response_flag, external_ids, results].hash
     end
 
     # Builds the object from hash
