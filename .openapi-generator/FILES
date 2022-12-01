@@ -18,7 +18,9 @@ docs/Error.md
 docs/Event.md
 docs/Events.md
 docs/Identifier.md
+docs/Ids.md
 docs/Location.md
+docs/Measurement.md
 docs/Medication.md
 docs/MedicationAdministration.md
 docs/Meta.md
@@ -77,7 +79,9 @@ lib/primary_connect_client/models/error.rb
 lib/primary_connect_client/models/event.rb
 lib/primary_connect_client/models/events.rb
 lib/primary_connect_client/models/identifier.rb
+lib/primary_connect_client/models/ids.rb
 lib/primary_connect_client/models/location.rb
+lib/primary_connect_client/models/measurement.rb
 lib/primary_connect_client/models/medication.rb
 lib/primary_connect_client/models/medication_administration.rb
 lib/primary_connect_client/models/meta.rb
@@ -135,7 +139,9 @@ spec/models/error_spec.rb
 spec/models/event_spec.rb
 spec/models/events_spec.rb
 spec/models/identifier_spec.rb
+spec/models/ids_spec.rb
 spec/models/location_spec.rb
+spec/models/measurement_spec.rb
 spec/models/medication_administration_spec.rb
 spec/models/medication_spec.rb
 spec/models/meta_destinations_spec.rb
