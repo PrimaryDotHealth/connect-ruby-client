@@ -1,49 +1,20 @@
 # PrimaryConnectClient::Subject
 
-## Class instance methods
+## Properties
 
-### `openapi_one_of`
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **patient** | [**Patient**](Patient.md) |  | [optional] |
+| **device** | [**Device**](Device.md) |  | [optional] |
 
-Returns the list of classes defined in oneOf.
-
-#### Example
-
-```ruby
-require 'primary_connect_client'
-
-PrimaryConnectClient::Subject.openapi_one_of
-# =>
-# [
-#   :'SubjectOneOf',
-#   :'SubjectOneOf1'
-# ]
-```
-
-### build
-
-Find the appropriate object from the `openapi_one_of` list and casts the data into it.
-
-#### Example
+## Example
 
 ```ruby
 require 'primary_connect_client'
 
-PrimaryConnectClient::Subject.build(data)
-# => #<SubjectOneOf:0x00007fdd4aab02a0>
-
-PrimaryConnectClient::Subject.build(data_that_doesnt_match)
-# => nil
+instance = PrimaryConnectClient::Subject.new(
+  patient: null,
+  device: null
+)
 ```
-
-#### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| **data** | **Mixed** | data to be matched against the list of oneOf items |
-
-#### Return type
-
-- `SubjectOneOf`
-- `SubjectOneOf1`
-- `nil` (if no type matches)
 

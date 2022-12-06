@@ -16,7 +16,7 @@
 | **specimen** | [**Specimen**](Specimen.md) |  | [optional] |
 | **medication_administrations** | [**Array&lt;MedicationAdministration&gt;**](MedicationAdministration.md) | Array of medications administered to the subject | [optional] |
 | **procedure** | [**CodedValue**](CodedValue.md) |  | [optional] |
-| **procedures** | [**Array&lt;CodedValues&gt;**](CodedValues.md) | Array of Procedures ordered | [optional] |
+| **procedures** | [**Array&lt;CodedValue&gt;**](CodedValue.md) | Array of Procedures ordered | [optional] |
 | **ordering_provider** | [**Provider**](Provider.md) |  | [optional] |
 | **result_copy_providers** | [**Array&lt;Provider&gt;**](Provider.md) | Array of providers to be copied on the results | [optional] |
 | **ordering_facility** | [**OrderOrderOrderingFacility**](OrderOrderOrderingFacility.md) |  | [optional] |
