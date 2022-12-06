@@ -158,7 +158,7 @@ module PrimaryConnectClient
         :'specimen' => :'Specimen',
         :'medication_administrations' => :'Array<MedicationAdministration>',
         :'procedure' => :'CodedValue',
-        :'procedures' => :'Array<CodedValues>',
+        :'procedures' => :'Array<CodedValue>',
         :'ordering_provider' => :'Provider',
         :'result_copy_providers' => :'Array<Provider>',
         :'ordering_facility' => :'OrderOrderOrderingFacility',
