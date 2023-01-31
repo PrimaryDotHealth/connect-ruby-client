@@ -322,7 +322,7 @@ module PrimaryConnectClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED"])
+      status_validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED", "STATUS_SHIPPED"])
       return false unless status_validator.valid?(@status)
       priority_validator = EnumAttributeValidator.new('String', ["PRIORITY_UNKNOWN", "PRIORITY_ASAP", "PRIORITY_ROUTINE", "PRIORITY_PREOPERATIVE", "PRIORITY_TIMING_CRITICAL", "PRIORITY_STAT"])
       return false unless priority_validator.valid?(@priority)
@@ -336,7 +336,7 @@ module PrimaryConnectClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED"])
+      validator = EnumAttributeValidator.new('String', ["STATUS_UNKNOWN", "STATUS_UPDATE", "STATUS_CANCEL", "STATUS_RESULTED", "STATUS_NEW", "STATUS_REPORTED", "STATUS_SHIPPED"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
