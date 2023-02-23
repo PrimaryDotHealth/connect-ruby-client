@@ -28,11 +28,15 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.4"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
-  s.add_runtime_dependency 'primary_connect_proto', '~> 0.19.0', '>= 0.19.0'
+  s.add_runtime_dependency 'primary_connect_proto', '~> 0.20.0', '>= 0.20.0'
 
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  s.files         = Dir.chdir(File.expand_path(__dir__)) do
+    `git ls-files -z`.split("\x0").reject do |f|
+      (f == __FILE__) || f.match(%r{\A(?:(?:test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
+    end
+  end
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]
