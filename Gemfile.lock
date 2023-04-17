@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    primary_connect_client (1.7.0)
-      primary_connect_proto (~> 0.19.0, >= 0.19.0)
+    primary_connect_client (1.8.0)
+      primary_connect_proto (~> 0.21.0, >= 0.21.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -15,13 +15,13 @@ GEM
     ethon (0.16.0)
       ffi (>= 1.15.0)
     ffi (1.15.5)
-    google-protobuf (3.22.0-arm64-darwin)
+    google-protobuf (3.22.3-arm64-darwin)
     jaro_winkler (1.5.4)
     method_source (1.0.0)
     parallel (1.22.1)
     parser (3.2.1.0)
       ast (~> 2.4.1)
-    primary_connect_proto (0.19.0)
+    primary_connect_proto (0.21.0)
       google-protobuf (~> 3.22.0)
     pry (0.14.2)
       coderay (~> 1.1)
