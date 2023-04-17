@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.9.0
+
+- Updated dependency on `primary_connect_proto` 0.21.0
+
 ## 1.8.0
 
 - Updated gemspec to ignore unnecessary files
