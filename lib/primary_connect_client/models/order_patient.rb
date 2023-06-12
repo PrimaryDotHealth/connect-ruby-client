@@ -14,25 +14,25 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Order
-    attr_accessor :patient
+  # Deprecated in favor of `subject.patient`
+  class OrderPatient
+    # List of IDs and types that identify the patient
+    attr_accessor :identifiers
 
-    attr_accessor :subject
+    attr_accessor :demographics
 
-    attr_accessor :visit
+    # Patient-level notes
+    attr_accessor :notes
 
-    attr_accessor :meta
-
-    attr_accessor :order
+    attr_accessor :contacts
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'patient' => :'patient',
-        :'subject' => :'subject',
-        :'visit' => :'visit',
-        :'meta' => :'meta',
-        :'order' => :'order'
+        :'identifiers' => :'identifiers',
+        :'demographics' => :'demographics',
+        :'notes' => :'notes',
+        :'contacts' => :'contacts'
       }
     end
 
@@ -44,11 +44,10 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'patient' => :'OrderPatient',
-        :'subject' => :'Subject',
-        :'visit' => :'Visit',
-        :'meta' => :'Meta',
-        :'order' => :'OrderOrder'
+        :'identifiers' => :'Array<Identifier>',
+        :'demographics' => :'Demographics',
+        :'notes' => :'Array<String>',
+        :'contacts' => :'Array<OrderPatientContacts>'
       }
     end
 
@@ -62,35 +61,37 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Order` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::OrderPatient` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Order`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::OrderPatient`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'patient')
-        self.patient = attributes[:'patient']
+      if attributes.key?(:'identifiers')
+        if (value = attributes[:'identifiers']).is_a?(Array)
+          self.identifiers = value
+        end
       end
 
-      if attributes.key?(:'subject')
-        self.subject = attributes[:'subject']
+      if attributes.key?(:'demographics')
+        self.demographics = attributes[:'demographics']
       end
 
-      if attributes.key?(:'visit')
-        self.visit = attributes[:'visit']
+      if attributes.key?(:'notes')
+        if (value = attributes[:'notes']).is_a?(Array)
+          self.notes = value
+        end
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
+      if attributes.key?(:'contacts')
+        if (value = attributes[:'contacts']).is_a?(Array)
+          self.contacts = value
+        end
       end
     end
 
@@ -112,11 +113,10 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          patient == o.patient &&
-          subject == o.subject &&
-          visit == o.visit &&
-          meta == o.meta &&
-          order == o.order
+          identifiers == o.identifiers &&
+          demographics == o.demographics &&
+          notes == o.notes &&
+          contacts == o.contacts
     end
 
     # @see the `==` method
@@ -128,7 +128,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [patient, subject, visit, meta, order].hash
+      [identifiers, demographics, notes, contacts].hash
     end
 
     # Builds the object from hash

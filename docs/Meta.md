@@ -13,6 +13,7 @@
 | **transmission** | [**MetaTransmission**](MetaTransmission.md) |  | [optional] |
 | **facility_code** | **String** |  | [optional] |
 | **echo** | **Object** | Arbitrary key/value pairs to store with the Order | [optional] |
+| **provenances** | [**Array&lt;MetaProvenances&gt;**](MetaProvenances.md) |  | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = PrimaryConnectClient::Meta.new(
   message: null,
   transmission: null,
   facility_code: 123,
-  echo: null
+  echo: null,
+  provenances: null
 )
 ```
 

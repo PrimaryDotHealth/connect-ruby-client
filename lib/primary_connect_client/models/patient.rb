@@ -46,7 +46,7 @@ module PrimaryConnectClient
         :'identifiers' => :'Array<Identifier>',
         :'demographics' => :'Demographics',
         :'notes' => :'Array<String>',
-        :'contacts' => :'Array<PatientContacts>'
+        :'contacts' => :'Array<OrderPatientContacts>'
       }
     end
 

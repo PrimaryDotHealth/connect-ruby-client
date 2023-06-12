@@ -35,6 +35,8 @@ module PrimaryConnectClient
     # Arbitrary key/value pairs to store with the Order
     attr_accessor :echo
 
+    attr_accessor :provenances
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -68,7 +70,8 @@ module PrimaryConnectClient
         :'message' => :'message',
         :'transmission' => :'transmission',
         :'facility_code' => :'facilityCode',
-        :'echo' => :'echo'
+        :'echo' => :'echo',
+        :'provenances' => :'provenances'
       }
     end
 
@@ -88,7 +91,8 @@ module PrimaryConnectClient
         :'message' => :'MetaMessage',
         :'transmission' => :'MetaTransmission',
         :'facility_code' => :'String',
-        :'echo' => :'Object'
+        :'echo' => :'Object',
+        :'provenances' => :'Array<MetaProvenances>'
       }
     end
 
@@ -150,6 +154,12 @@ module PrimaryConnectClient
       if attributes.key?(:'echo')
         self.echo = attributes[:'echo']
       end
+
+      if attributes.key?(:'provenances')
+        if (value = attributes[:'provenances']).is_a?(Array)
+          self.provenances = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -190,7 +200,8 @@ module PrimaryConnectClient
           message == o.message &&
           transmission == o.transmission &&
           facility_code == o.facility_code &&
-          echo == o.echo
+          echo == o.echo &&
+          provenances == o.provenances
     end
 
     # @see the `==` method
@@ -202,7 +213,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_type, event_date_and_time, test, source, destinations, message, transmission, facility_code, echo].hash
+      [event_type, event_date_and_time, test, source, destinations, message, transmission, facility_code, echo, provenances].hash
     end
 
     # Builds the object from hash
