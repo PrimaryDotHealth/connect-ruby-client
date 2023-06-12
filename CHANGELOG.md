@@ -2,7 +2,7 @@
 
 ## 1.10.0
 
-- Add OpenApi generated code
+- Updated dependency on `primary_connect_proto` 0.22.0
 
 ## 1.9.0
 
