@@ -14,25 +14,52 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Order
-    attr_accessor :patient
+  class OrderPatientContacts
+    attr_accessor :name
 
-    attr_accessor :subject
+    attr_accessor :address
 
-    attr_accessor :visit
+    attr_accessor :phone_numbers
 
-    attr_accessor :meta
+    # Personal relationship to the patient
+    attr_accessor :relation_to_patient
 
-    attr_accessor :order
+    attr_accessor :email_addresses
+
+    # e.g. Employer, Emergency Contact
+    attr_accessor :roles
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'patient' => :'patient',
-        :'subject' => :'subject',
-        :'visit' => :'visit',
-        :'meta' => :'meta',
-        :'order' => :'order'
+        :'name' => :'name',
+        :'address' => :'address',
+        :'phone_numbers' => :'phoneNumbers',
+        :'relation_to_patient' => :'relationToPatient',
+        :'email_addresses' => :'emailAddresses',
+        :'roles' => :'roles'
       }
     end
 
@@ -44,11 +71,12 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'patient' => :'OrderPatient',
-        :'subject' => :'Subject',
-        :'visit' => :'Visit',
-        :'meta' => :'Meta',
-        :'order' => :'OrderOrder'
+        :'name' => :'Name',
+        :'address' => :'Address',
+        :'phone_numbers' => :'Array<PhoneNumber>',
+        :'relation_to_patient' => :'String',
+        :'email_addresses' => :'Array<String>',
+        :'roles' => :'Array<String>'
       }
     end
 
@@ -62,35 +90,45 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Order` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::OrderPatientContacts` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Order`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::OrderPatientContacts`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'patient')
-        self.patient = attributes[:'patient']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'subject')
-        self.subject = attributes[:'subject']
+      if attributes.key?(:'address')
+        self.address = attributes[:'address']
       end
 
-      if attributes.key?(:'visit')
-        self.visit = attributes[:'visit']
+      if attributes.key?(:'phone_numbers')
+        if (value = attributes[:'phone_numbers']).is_a?(Array)
+          self.phone_numbers = value
+        end
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'relation_to_patient')
+        self.relation_to_patient = attributes[:'relation_to_patient']
       end
 
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
+      if attributes.key?(:'email_addresses')
+        if (value = attributes[:'email_addresses']).is_a?(Array)
+          self.email_addresses = value
+        end
+      end
+
+      if attributes.key?(:'roles')
+        if (value = attributes[:'roles']).is_a?(Array)
+          self.roles = value
+        end
       end
     end
 
@@ -104,7 +142,19 @@ module PrimaryConnectClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      relation_to_patient_validator = EnumAttributeValidator.new('String', ["RELATIONSHIP_UNKNOWN", "RELATIONSHIP_OTHER", "RELATIONSHIP_SELF", "RELATIONSHIP_SPOUSE", "RELATIONSHIP_LIFE_PARTNER", "RELATIONSHIP_CHILD", "RELATIONSHIP_FATHER", "RELATIONSHIP_MOTHER", "RELATIONSHIP_GUARDIAN", "RELATIONSHIP_PARENT", "RELATIONSHIP_GRANDPARENT", "RELATIONSHIP_GRANDCHILD", "RELATIONSHIP_SIBLING", "RELATIONSHIP_EMPLOYER"])
+      return false unless relation_to_patient_validator.valid?(@relation_to_patient)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] relation_to_patient Object to be assigned
+    def relation_to_patient=(relation_to_patient)
+      validator = EnumAttributeValidator.new('String', ["RELATIONSHIP_UNKNOWN", "RELATIONSHIP_OTHER", "RELATIONSHIP_SELF", "RELATIONSHIP_SPOUSE", "RELATIONSHIP_LIFE_PARTNER", "RELATIONSHIP_CHILD", "RELATIONSHIP_FATHER", "RELATIONSHIP_MOTHER", "RELATIONSHIP_GUARDIAN", "RELATIONSHIP_PARENT", "RELATIONSHIP_GRANDPARENT", "RELATIONSHIP_GRANDCHILD", "RELATIONSHIP_SIBLING", "RELATIONSHIP_EMPLOYER"])
+      unless validator.valid?(relation_to_patient)
+        fail ArgumentError, "invalid value for \"relation_to_patient\", must be one of #{validator.allowable_values}."
+      end
+      @relation_to_patient = relation_to_patient
     end
 
     # Checks equality by comparing each attribute.
@@ -112,11 +162,12 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          patient == o.patient &&
-          subject == o.subject &&
-          visit == o.visit &&
-          meta == o.meta &&
-          order == o.order
+          name == o.name &&
+          address == o.address &&
+          phone_numbers == o.phone_numbers &&
+          relation_to_patient == o.relation_to_patient &&
+          email_addresses == o.email_addresses &&
+          roles == o.roles
     end
 
     # @see the `==` method
@@ -128,7 +179,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [patient, subject, visit, meta, order].hash
+      [name, address, phone_numbers, relation_to_patient, email_addresses, roles].hash
     end
 
     # Builds the object from hash

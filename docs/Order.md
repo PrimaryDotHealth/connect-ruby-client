@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **patient** | [**Patient**](Patient.md) |  | [optional] |
+| **patient** | [**OrderPatient**](OrderPatient.md) |  | [optional] |
 | **subject** | [**Subject**](Subject.md) |  | [optional] |
 | **visit** | [**Visit**](Visit.md) |  | [optional] |
 | **meta** | [**Meta**](Meta.md) |  | [optional] |

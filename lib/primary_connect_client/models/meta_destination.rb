@@ -14,25 +14,20 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Order
-    attr_accessor :patient
+  class MetaDestination
+    attr_accessor :id
 
-    attr_accessor :subject
+    attr_accessor :name
 
-    attr_accessor :visit
-
-    attr_accessor :meta
-
-    attr_accessor :order
+    # Arbitrary key/value pairs for Lab specific use
+    attr_accessor :config
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'patient' => :'patient',
-        :'subject' => :'subject',
-        :'visit' => :'visit',
-        :'meta' => :'meta',
-        :'order' => :'order'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'config' => :'config'
       }
     end
 
@@ -44,11 +39,9 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'patient' => :'OrderPatient',
-        :'subject' => :'Subject',
-        :'visit' => :'Visit',
-        :'meta' => :'Meta',
-        :'order' => :'OrderOrder'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'config' => :'Object'
       }
     end
 
@@ -62,35 +55,27 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Order` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::MetaDestination` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Order`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::MetaDestination`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'patient')
-        self.patient = attributes[:'patient']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'subject')
-        self.subject = attributes[:'subject']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'visit')
-        self.visit = attributes[:'visit']
-      end
-
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-
-      if attributes.key?(:'order')
-        self.order = attributes[:'order']
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
       end
     end
 
@@ -112,11 +97,9 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          patient == o.patient &&
-          subject == o.subject &&
-          visit == o.visit &&
-          meta == o.meta &&
-          order == o.order
+          id == o.id &&
+          name == o.name &&
+          config == o.config
     end
 
     # @see the `==` method
@@ -128,7 +111,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [patient, subject, visit, meta, order].hash
+      [id, name, config].hash
     end
 
     # Builds the object from hash

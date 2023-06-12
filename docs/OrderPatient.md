@@ -1,4 +1,4 @@
-# PrimaryConnectClient::Patient
+# PrimaryConnectClient::OrderPatient
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'primary_connect_client'
 
-instance = PrimaryConnectClient::Patient.new(
+instance = PrimaryConnectClient::OrderPatient.new(
   identifiers: null,
   demographics: null,
   notes: null,
