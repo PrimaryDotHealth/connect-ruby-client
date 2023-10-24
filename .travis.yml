@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build primary_connect_client.gemspec
-  - gem install ./primary_connect_client-1.10.0.gem
+  - gem install ./primary_connect_client-1.11.0.gem

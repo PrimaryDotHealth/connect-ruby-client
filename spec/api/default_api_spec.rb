@@ -169,6 +169,29 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for reroute_order
+  # reroute Order identified in the payload
+  # @param [Hash] opts the optional parameters
+  # @option opts [Order] :order 
+  # @return [nil]
+  describe 'reroute_order test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for reroute_order_by_ulid
+  # Reroute order by ULID
+  # @param id Order ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [Order] :order 
+  # @return [nil]
+  describe 'reroute_order_by_ulid test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_order
   # update order
   # @param id Order ID

@@ -16,6 +16,8 @@ All URIs are relative to *https://connect.primary.health*
 | [**list_events**](DefaultApi.md#list_events) | **GET** /api/v1/events | list events |
 | [**list_orders**](DefaultApi.md#list_orders) | **GET** /api/v1/orders | list orders |
 | [**list_results**](DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results |
+| [**reroute_order**](DefaultApi.md#reroute_order) | **POST** /api/v1/orders/reroute | reroute Order identified in the payload |
+| [**reroute_order_by_ulid**](DefaultApi.md#reroute_order_by_ulid) | **POST** /api/v1/orders/{id}/reroute | Reroute order by ULID |
 | [**update_order**](DefaultApi.md#update_order) | **PUT** /api/v1/orders/{id} | update order |
 
 
@@ -838,6 +840,144 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## reroute_order
+
+> reroute_order(opts)
+
+reroute Order identified in the payload
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+opts = {
+  order: PrimaryConnectClient::Order.new # Order | 
+}
+
+begin
+  # reroute Order identified in the payload
+  api_instance.reroute_order(opts)
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->reroute_order: #{e}"
+end
+```
+
+#### Using the reroute_order_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> reroute_order_with_http_info(opts)
+
+```ruby
+begin
+  # reroute Order identified in the payload
+  data, status_code, headers = api_instance.reroute_order_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->reroute_order_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **order** | [**Order**](Order.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+
+## reroute_order_by_ulid
+
+> reroute_order_by_ulid(id, opts)
+
+Reroute order by ULID
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+id = '01FGD44Q6MVCG2VNSMC4ZMOTQM' # String | Order ID
+opts = {
+  order: PrimaryConnectClient::Order.new # Order | 
+}
+
+begin
+  # Reroute order by ULID
+  api_instance.reroute_order_by_ulid(id, opts)
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->reroute_order_by_ulid: #{e}"
+end
+```
+
+#### Using the reroute_order_by_ulid_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> reroute_order_by_ulid_with_http_info(id, opts)
+
+```ruby
+begin
+  # Reroute order by ULID
+  data, status_code, headers = api_instance.reroute_order_by_ulid_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->reroute_order_by_ulid_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Order ID |  |
+| **order** | [**Order**](Order.md) |  | [optional] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## update_order
