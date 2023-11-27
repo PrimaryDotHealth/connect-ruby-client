@@ -64,6 +64,9 @@ module PrimaryConnectClient
 
     attr_accessor :procedure
 
+    # Controls provider/patient notification. Default `false` which will notify.
+    attr_accessor :suppress
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -108,7 +111,8 @@ module PrimaryConnectClient
         :'producer_order_id' => :'producerOrderId',
         :'finding_value' => :'findingValue',
         :'resulting_device' => :'resultingDevice',
-        :'procedure' => :'procedure'
+        :'procedure' => :'procedure',
+        :'suppress' => :'suppress'
       }
     end
 
@@ -139,7 +143,8 @@ module PrimaryConnectClient
         :'producer_order_id' => :'String',
         :'finding_value' => :'CodedValue',
         :'resulting_device' => :'Device',
-        :'procedure' => :'CodedValue'
+        :'procedure' => :'CodedValue',
+        :'suppress' => :'Boolean'
       }
     end
 
@@ -248,6 +253,10 @@ module PrimaryConnectClient
       if attributes.key?(:'procedure')
         self.procedure = attributes[:'procedure']
       end
+
+      if attributes.key?(:'suppress')
+        self.suppress = attributes[:'suppress']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -323,7 +332,8 @@ module PrimaryConnectClient
           producer_order_id == o.producer_order_id &&
           finding_value == o.finding_value &&
           resulting_device == o.resulting_device &&
-          procedure == o.procedure
+          procedure == o.procedure &&
+          suppress == o.suppress
     end
 
     # @see the `==` method
@@ -335,7 +345,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, related_group_id, specimen, value, value_type, completion_date_time, report, units, notes, abnormal_flag, status, primary_results_interpreter, producer, performer, reference_range, observation_method, producer_order_id, finding_value, resulting_device, procedure].hash
+      [code, related_group_id, specimen, value, value_type, completion_date_time, report, units, notes, abnormal_flag, status, primary_results_interpreter, producer, performer, reference_range, observation_method, producer_order_id, finding_value, resulting_device, procedure, suppress].hash
     end
 
     # Builds the object from hash

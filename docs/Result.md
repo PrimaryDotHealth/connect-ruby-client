@@ -24,6 +24,7 @@
 | **finding_value** | [**CodedValue**](CodedValue.md) |  | [optional] |
 | **resulting_device** | [**Device**](Device.md) |  | [optional] |
 | **procedure** | [**CodedValue**](CodedValue.md) |  | [optional] |
+| **suppress** | **Boolean** | Controls provider/patient notification. Default &#x60;false&#x60; which will notify. | [optional] |
 
 ## Example
 
@@ -50,7 +51,8 @@ instance = PrimaryConnectClient::Result.new(
   producer_order_id: 12345678,
   finding_value: null,
   resulting_device: null,
-  procedure: null
+  procedure: null,
+  suppress: null
 )
 ```
 
