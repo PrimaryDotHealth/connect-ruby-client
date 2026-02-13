@@ -271,7 +271,7 @@ module PrimaryConnectClient
     def valid?
       value_type_validator = EnumAttributeValidator.new('String', ["UNKNOWN", "CODED_ENTRY", "DATE", "DATE_TIME", "ENCAPSULATED_DATA", "FORMATTED_TEXT", "ID", "ID_AND_NAME", "MONEY", "NAME", "NUMERIC", "PHONE_NUMBER", "PRICE", "REFERENCE_POINTER", "STRING", "TIME", "STRUCTURED_NUMERIC", "ADDRESS"])
       return false unless value_type_validator.valid?(@value_type)
-      abnormal_flag_validator = EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL"])
+      abnormal_flag_validator = EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL", "ABOVE_ABSOLUTE_HIGH", "BELOW_ABSOLUTE_LOW", "BETTER", "SIGNIFICANT_CHANGE_DOWN", "SIGNIFICANT_CHANGE_UP", "WORSE"])
       return false unless abnormal_flag_validator.valid?(@abnormal_flag)
       status_validator = EnumAttributeValidator.new('String', ["NONE_SPECIFIED", "INCOMPLETE", "CORRECTED", "FINAL", "UNAVAILABLE", "PRELIMINARY", "CANCELED", "DELETED", "REJECTED"])
       return false unless status_validator.valid?(@status)
@@ -291,7 +291,7 @@ module PrimaryConnectClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] abnormal_flag Object to be assigned
     def abnormal_flag=(abnormal_flag)
-      validator = EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL"])
+      validator = EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL", "ABOVE_ABSOLUTE_HIGH", "BELOW_ABSOLUTE_LOW", "BETTER", "SIGNIFICANT_CHANGE_DOWN", "SIGNIFICANT_CHANGE_UP", "WORSE"])
       unless validator.valid?(abnormal_flag)
         fail ArgumentError, "invalid value for \"abnormal_flag\", must be one of #{validator.allowable_values}."
       end

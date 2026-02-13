@@ -86,7 +86,7 @@ describe PrimaryConnectClient::Result do
   describe 'test attribute "abnormal_flag"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "LOW", "VERY_LOW", "HIGH", "VERY_HIGH", "ABNORMAL", "SUSCEPTIBLE", "RESISTANT", "INTERMEDIATE", "MODERATELY_SUSCEPTIBLE", "VERY_SUSCEPTIBLE", "CRITICALLY_ABNORMAL", "CRITICALLY_LOW", "CRITICALLY_HIGH", "NOT_SUSCEPTIBLE", "INCONCLUSIVE", "VERY_ABNORMAL", "NORMAL", "ABOVE_ABSOLUTE_HIGH", "BELOW_ABSOLUTE_LOW", "BETTER", "SIGNIFICANT_CHANGE_DOWN", "SIGNIFICANT_CHANGE_UP", "WORSE"])
       # validator.allowable_values.each do |value|
       #   expect { instance.abnormal_flag = value }.not_to raise_error
       # end

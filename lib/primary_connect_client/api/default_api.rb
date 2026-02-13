@@ -647,6 +647,9 @@ module PrimaryConnectClient
     # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
     # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
     # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
+    # @option opts [Boolean] :without_order_body Exclude order body from the response
+    # @option opts [Boolean] :sent_only Filter orders sent by the current entity
+    # @option opts [Boolean] :received_only Filter orders received by the current entity
     # @return [Orders]
     def list_orders(opts = {})
       data, _status_code, _headers = list_orders_with_http_info(opts)
@@ -658,6 +661,9 @@ module PrimaryConnectClient
     # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
     # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
     # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
+    # @option opts [Boolean] :without_order_body Exclude order body from the response
+    # @option opts [Boolean] :sent_only Filter orders sent by the current entity
+    # @option opts [Boolean] :received_only Filter orders received by the current entity
     # @return [Array<(Orders, Integer, Hash)>] Orders data, response status code and response headers
     def list_orders_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -671,6 +677,9 @@ module PrimaryConnectClient
       query_params[:'last_order_id'] = opts[:'last_order_id'] if !opts[:'last_order_id'].nil?
       query_params[:'state'] = opts[:'state'] if !opts[:'state'].nil?
       query_params[:'specimen_id'] = opts[:'specimen_id'] if !opts[:'specimen_id'].nil?
+      query_params[:'without_order_body'] = opts[:'without_order_body'] if !opts[:'without_order_body'].nil?
+      query_params[:'sent_only'] = opts[:'sent_only'] if !opts[:'sent_only'].nil?
+      query_params[:'received_only'] = opts[:'received_only'] if !opts[:'received_only'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -889,6 +898,68 @@ module PrimaryConnectClient
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#reroute_order_by_ulid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # send query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Query] :query 
+    # @return [Immunizations]
+    def send_query(opts = {})
+      data, _status_code, _headers = send_query_with_http_info(opts)
+      data
+    end
+
+    # send query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Query] :query 
+    # @return [Array<(Immunizations, Integer, Hash)>] Immunizations data, response status code and response headers
+    def send_query_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.send_query ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/queries'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'query'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Immunizations'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearer_auth']
+
+      new_options = opts.merge(
+        :operation => :"DefaultApi.send_query",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#send_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

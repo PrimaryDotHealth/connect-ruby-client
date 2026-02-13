@@ -9,6 +9,7 @@ Rakefile
 docs/Accession.md
 docs/AccessionOrder.md
 docs/Address.md
+docs/Candidates.md
 docs/CodedValue.md
 docs/DefaultApi.md
 docs/Demographics.md
@@ -19,6 +20,7 @@ docs/Event.md
 docs/Events.md
 docs/Identifier.md
 docs/Ids.md
+docs/Immunizations.md
 docs/Location.md
 docs/Measurement.md
 docs/Medication.md
@@ -45,6 +47,7 @@ docs/OrdersOrders.md
 docs/Patient.md
 docs/PhoneNumber.md
 docs/Provider.md
+docs/Query.md
 docs/Result.md
 docs/ResultIds.md
 docs/ResultReferenceRange.md
@@ -72,6 +75,7 @@ lib/primary_connect_client/configuration.rb
 lib/primary_connect_client/models/accession.rb
 lib/primary_connect_client/models/accession_order.rb
 lib/primary_connect_client/models/address.rb
+lib/primary_connect_client/models/candidates.rb
 lib/primary_connect_client/models/coded_value.rb
 lib/primary_connect_client/models/demographics.rb
 lib/primary_connect_client/models/device.rb
@@ -81,6 +85,7 @@ lib/primary_connect_client/models/event.rb
 lib/primary_connect_client/models/events.rb
 lib/primary_connect_client/models/identifier.rb
 lib/primary_connect_client/models/ids.rb
+lib/primary_connect_client/models/immunizations.rb
 lib/primary_connect_client/models/location.rb
 lib/primary_connect_client/models/measurement.rb
 lib/primary_connect_client/models/medication.rb
@@ -107,6 +112,7 @@ lib/primary_connect_client/models/orders_orders.rb
 lib/primary_connect_client/models/patient.rb
 lib/primary_connect_client/models/phone_number.rb
 lib/primary_connect_client/models/provider.rb
+lib/primary_connect_client/models/query.rb
 lib/primary_connect_client/models/result.rb
 lib/primary_connect_client/models/result_ids.rb
 lib/primary_connect_client/models/result_reference_range.rb
@@ -133,6 +139,7 @@ spec/configuration_spec.rb
 spec/models/accession_order_spec.rb
 spec/models/accession_spec.rb
 spec/models/address_spec.rb
+spec/models/candidates_spec.rb
 spec/models/coded_value_spec.rb
 spec/models/demographics_spec.rb
 spec/models/device_spec.rb
@@ -142,6 +149,7 @@ spec/models/event_spec.rb
 spec/models/events_spec.rb
 spec/models/identifier_spec.rb
 spec/models/ids_spec.rb
+spec/models/immunizations_spec.rb
 spec/models/location_spec.rb
 spec/models/measurement_spec.rb
 spec/models/medication_administration_spec.rb
@@ -168,6 +176,7 @@ spec/models/orders_spec.rb
 spec/models/patient_spec.rb
 spec/models/phone_number_spec.rb
 spec/models/provider_spec.rb
+spec/models/query_spec.rb
 spec/models/result_ids_spec.rb
 spec/models/result_reference_range_spec.rb
 spec/models/result_report_spec.rb
