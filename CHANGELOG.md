@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.13.0
+
+- Added Queries API
+
 ## 1.12.0
 
 - Updated dependency on `primary_connect_proto` 0.24.0

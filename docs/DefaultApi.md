@@ -18,6 +18,7 @@ All URIs are relative to *https://connect.primary.health*
 | [**list_results**](DefaultApi.md#list_results) | **GET** /api/v1/orders/{order_id}/results | list results |
 | [**reroute_order**](DefaultApi.md#reroute_order) | **POST** /api/v1/orders/reroute | reroute Order identified in the payload |
 | [**reroute_order_by_ulid**](DefaultApi.md#reroute_order_by_ulid) | **POST** /api/v1/orders/{id}/reroute | Reroute order by ULID |
+| [**send_query**](DefaultApi.md#send_query) | **POST** /api/v1/queries | send query |
 | [**update_order**](DefaultApi.md#update_order) | **PUT** /api/v1/orders/{id} | update order |
 
 
@@ -723,7 +724,10 @@ api_instance = PrimaryConnectClient::DefaultApi.new
 opts = {
   last_order_id: '01FGD30NTPNNZE9MKGMWZGHGTZ', # String | Paginate orders with order id. 26 character, sortable id.
   state: 'new,resulted', # String | Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
-  specimen_id: 'PB1234567' # String | Find an order by specimen/accession id. If found, will redirect to show order endpoint.
+  specimen_id: 'PB1234567', # String | Find an order by specimen/accession id. If found, will redirect to show order endpoint.
+  without_order_body: true, # Boolean | Exclude order body from the response
+  sent_only: true, # Boolean | Filter orders sent by the current entity
+  received_only: true # Boolean | Filter orders received by the current entity
 }
 
 begin
@@ -760,6 +764,9 @@ end
 | **last_order_id** | **String** | Paginate orders with order id. 26 character, sortable id. | [optional] |
 | **state** | **String** | Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable] | [optional] |
 | **specimen_id** | **String** | Find an order by specimen/accession id. If found, will redirect to show order endpoint. | [optional] |
+| **without_order_body** | **Boolean** | Exclude order body from the response | [optional] |
+| **sent_only** | **Boolean** | Filter orders sent by the current entity | [optional] |
+| **received_only** | **Boolean** | Filter orders received by the current entity | [optional] |
 
 ### Return type
 
@@ -978,6 +985,75 @@ nil (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+
+## send_query
+
+> <Immunizations> send_query(opts)
+
+send query
+
+### Examples
+
+```ruby
+require 'time'
+require 'primary_connect_client'
+# setup authorization
+PrimaryConnectClient.configure do |config|
+  # Configure Bearer authorization: bearer_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = PrimaryConnectClient::DefaultApi.new
+opts = {
+  query: PrimaryConnectClient::Query.new # Query | 
+}
+
+begin
+  # send query
+  result = api_instance.send_query(opts)
+  p result
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->send_query: #{e}"
+end
+```
+
+#### Using the send_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Immunizations>, Integer, Hash)> send_query_with_http_info(opts)
+
+```ruby
+begin
+  # send query
+  data, status_code, headers = api_instance.send_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Immunizations>
+rescue PrimaryConnectClient::ApiError => e
+  puts "Error when calling DefaultApi->send_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query** | [**Query**](Query.md) |  | [optional] |
+
+### Return type
+
+[**Immunizations**](Immunizations.md)
+
+### Authorization
+
+[bearer_auth](../README.md#bearer_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## update_order

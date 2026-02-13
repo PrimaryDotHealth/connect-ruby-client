@@ -14,39 +14,14 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class CodedValue
-    # E.g. 260373001 (SCT), 3006F (CPT), etc.
-    attr_accessor :value
-
-    # E.g. SCT, LN, NDC, CPT, CVX, etc.
-    attr_accessor :code_set
-
-    attr_accessor :description
-
-    attr_accessor :alt_value
-
-    attr_accessor :alt_code_set
-
-    attr_accessor :alt_description
-
-    attr_accessor :code_set_version
-
-    attr_accessor :alt_code_set_version
-
-    attr_accessor :original_text
+  class Candidates
+    # List of possible matches for the query
+    attr_accessor :candidates
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'value' => :'value',
-        :'code_set' => :'codeSet',
-        :'description' => :'description',
-        :'alt_value' => :'altValue',
-        :'alt_code_set' => :'altCodeSet',
-        :'alt_description' => :'altDescription',
-        :'code_set_version' => :'codeSetVersion',
-        :'alt_code_set_version' => :'altCodeSetVersion',
-        :'original_text' => :'originalText'
+        :'candidates' => :'candidates'
       }
     end
 
@@ -58,15 +33,7 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'value' => :'String',
-        :'code_set' => :'String',
-        :'description' => :'String',
-        :'alt_value' => :'String',
-        :'alt_code_set' => :'String',
-        :'alt_description' => :'String',
-        :'code_set_version' => :'String',
-        :'alt_code_set_version' => :'String',
-        :'original_text' => :'String'
+        :'candidates' => :'Array<Patient>'
       }
     end
 
@@ -80,51 +47,21 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::CodedValue` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Candidates` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::CodedValue`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Candidates`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'value')
-        self.value = attributes[:'value']
-      end
-
-      if attributes.key?(:'code_set')
-        self.code_set = attributes[:'code_set']
-      end
-
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.key?(:'alt_value')
-        self.alt_value = attributes[:'alt_value']
-      end
-
-      if attributes.key?(:'alt_code_set')
-        self.alt_code_set = attributes[:'alt_code_set']
-      end
-
-      if attributes.key?(:'alt_description')
-        self.alt_description = attributes[:'alt_description']
-      end
-
-      if attributes.key?(:'code_set_version')
-        self.code_set_version = attributes[:'code_set_version']
-      end
-
-      if attributes.key?(:'alt_code_set_version')
-        self.alt_code_set_version = attributes[:'alt_code_set_version']
-      end
-
-      if attributes.key?(:'original_text')
-        self.original_text = attributes[:'original_text']
+      if attributes.key?(:'candidates')
+        if (value = attributes[:'candidates']).is_a?(Array)
+          self.candidates = value
+        end
       end
     end
 
@@ -146,15 +83,7 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          value == o.value &&
-          code_set == o.code_set &&
-          description == o.description &&
-          alt_value == o.alt_value &&
-          alt_code_set == o.alt_code_set &&
-          alt_description == o.alt_description &&
-          code_set_version == o.code_set_version &&
-          alt_code_set_version == o.alt_code_set_version &&
-          original_text == o.original_text
+          candidates == o.candidates
     end
 
     # @see the `==` method
@@ -166,7 +95,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [value, code_set, description, alt_value, alt_code_set, alt_description, code_set_version, alt_code_set_version, original_text].hash
+      [candidates].hash
     end
 
     # Builds the object from hash

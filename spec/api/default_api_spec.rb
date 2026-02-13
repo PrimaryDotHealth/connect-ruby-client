@@ -151,6 +151,9 @@ describe 'DefaultApi' do
   # @option opts [String] :last_order_id Paginate orders with order id. 26 character, sortable id.
   # @option opts [String] :state Filter orders by state, comma delimited.[new, updated, delivered, processing, resulted, errored, canceled, unprocessable]
   # @option opts [String] :specimen_id Find an order by specimen/accession id. If found, will redirect to show order endpoint.
+  # @option opts [Boolean] :without_order_body Exclude order body from the response
+  # @option opts [Boolean] :sent_only Filter orders sent by the current entity
+  # @option opts [Boolean] :received_only Filter orders received by the current entity
   # @return [Orders]
   describe 'list_orders test' do
     it 'should work' do
@@ -187,6 +190,17 @@ describe 'DefaultApi' do
   # @option opts [Order] :order 
   # @return [nil]
   describe 'reroute_order_by_ulid test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for send_query
+  # send query
+  # @param [Hash] opts the optional parameters
+  # @option opts [Query] :query 
+  # @return [Immunizations]
+  describe 'send_query test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
