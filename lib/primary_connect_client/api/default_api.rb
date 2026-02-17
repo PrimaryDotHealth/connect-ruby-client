@@ -905,7 +905,7 @@ module PrimaryConnectClient
     # send query
     # @param [Hash] opts the optional parameters
     # @option opts [Query] :query 
-    # @return [Immunizations]
+    # @return [ImmunizationQueryResponse]
     def send_query(opts = {})
       data, _status_code, _headers = send_query_with_http_info(opts)
       data
@@ -914,7 +914,7 @@ module PrimaryConnectClient
     # send query
     # @param [Hash] opts the optional parameters
     # @option opts [Query] :query 
-    # @return [Array<(Immunizations, Integer, Hash)>] Immunizations data, response status code and response headers
+    # @return [Array<(ImmunizationQueryResponse, Integer, Hash)>] ImmunizationQueryResponse data, response status code and response headers
     def send_query_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DefaultApi.send_query ...'
@@ -942,7 +942,7 @@ module PrimaryConnectClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'query'])
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Immunizations'
+      return_type = opts[:debug_return_type] || 'ImmunizationQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearer_auth']

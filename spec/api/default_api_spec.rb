@@ -199,7 +199,7 @@ describe 'DefaultApi' do
   # send query
   # @param [Hash] opts the optional parameters
   # @option opts [Query] :query 
-  # @return [Immunizations]
+  # @return [ImmunizationQueryResponse]
   describe 'send_query test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -20,7 +20,7 @@ docs/Event.md
 docs/Events.md
 docs/Identifier.md
 docs/Ids.md
-docs/Immunizations.md
+docs/ImmunizationQueryResponse.md
 docs/Location.md
 docs/Measurement.md
 docs/Medication.md
@@ -85,7 +85,7 @@ lib/primary_connect_client/models/event.rb
 lib/primary_connect_client/models/events.rb
 lib/primary_connect_client/models/identifier.rb
 lib/primary_connect_client/models/ids.rb
-lib/primary_connect_client/models/immunizations.rb
+lib/primary_connect_client/models/immunization_query_response.rb
 lib/primary_connect_client/models/location.rb
 lib/primary_connect_client/models/measurement.rb
 lib/primary_connect_client/models/medication.rb
@@ -149,7 +149,7 @@ spec/models/event_spec.rb
 spec/models/events_spec.rb
 spec/models/identifier_spec.rb
 spec/models/ids_spec.rb
-spec/models/immunizations_spec.rb
+spec/models/immunization_query_response_spec.rb
 spec/models/location_spec.rb
 spec/models/measurement_spec.rb
 spec/models/medication_administration_spec.rb
