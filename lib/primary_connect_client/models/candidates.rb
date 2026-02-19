@@ -15,12 +15,16 @@ require 'time'
 
 module PrimaryConnectClient
   class Candidates
+    # Error message
+    attr_accessor :error
+
     # List of possible matches for the query
     attr_accessor :candidates
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'error' => :'error',
         :'candidates' => :'candidates'
       }
     end
@@ -33,6 +37,7 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'error' => :'String',
         :'candidates' => :'Array<Patient>'
       }
     end
@@ -57,6 +62,10 @@ module PrimaryConnectClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
+      end
 
       if attributes.key?(:'candidates')
         if (value = attributes[:'candidates']).is_a?(Array)
@@ -83,6 +92,7 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          error == o.error &&
           candidates == o.candidates
     end
 
@@ -95,7 +105,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [candidates].hash
+      [error, candidates].hash
     end
 
     # Builds the object from hash
