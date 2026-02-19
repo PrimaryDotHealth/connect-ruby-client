@@ -14,18 +14,20 @@ require 'date'
 require 'time'
 
 module PrimaryConnectClient
-  class Candidates
-    # Error message
-    attr_accessor :error
+  class ImmunizationQueryResponse
+    attr_accessor :meta
 
-    # List of possible matches for the query
-    attr_accessor :candidates
+    attr_accessor :patient
+
+    # List of Medication Administrations
+    attr_accessor :medication_administrations
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error' => :'error',
-        :'candidates' => :'candidates'
+        :'meta' => :'meta',
+        :'patient' => :'patient',
+        :'medication_administrations' => :'medicationAdministrations'
       }
     end
 
@@ -37,8 +39,9 @@ module PrimaryConnectClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'error' => :'String',
-        :'candidates' => :'Array<Patient>'
+        :'meta' => :'Meta',
+        :'patient' => :'Patient',
+        :'medication_administrations' => :'Array<MedicationAdministration>'
       }
     end
 
@@ -52,24 +55,28 @@ module PrimaryConnectClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::Candidates` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `PrimaryConnectClient::ImmunizationQueryResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::Candidates`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `PrimaryConnectClient::ImmunizationQueryResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
       end
 
-      if attributes.key?(:'candidates')
-        if (value = attributes[:'candidates']).is_a?(Array)
-          self.candidates = value
+      if attributes.key?(:'patient')
+        self.patient = attributes[:'patient']
+      end
+
+      if attributes.key?(:'medication_administrations')
+        if (value = attributes[:'medication_administrations']).is_a?(Array)
+          self.medication_administrations = value
         end
       end
     end
@@ -92,8 +99,9 @@ module PrimaryConnectClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error == o.error &&
-          candidates == o.candidates
+          meta == o.meta &&
+          patient == o.patient &&
+          medication_administrations == o.medication_administrations
     end
 
     # @see the `==` method
@@ -105,7 +113,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [error, candidates].hash
+      [meta, patient, medication_administrations].hash
     end
 
     # Builds the object from hash

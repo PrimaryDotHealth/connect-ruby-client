@@ -989,7 +989,7 @@ nil (empty response body)
 
 ## send_query
 
-> <Immunizations> send_query(opts)
+> <ImmunizationQueryResponse> send_query(opts)
 
 send query
 
@@ -1022,7 +1022,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Immunizations>, Integer, Hash)> send_query_with_http_info(opts)
+> <Array(<ImmunizationQueryResponse>, Integer, Hash)> send_query_with_http_info(opts)
 
 ```ruby
 begin
@@ -1030,7 +1030,7 @@ begin
   data, status_code, headers = api_instance.send_query_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Immunizations>
+  p data # => <ImmunizationQueryResponse>
 rescue PrimaryConnectClient::ApiError => e
   puts "Error when calling DefaultApi->send_query_with_http_info: #{e}"
 end
@@ -1044,7 +1044,7 @@ end
 
 ### Return type
 
-[**Immunizations**](Immunizations.md)
+[**ImmunizationQueryResponse**](ImmunizationQueryResponse.md)
 
 ### Authorization
 
