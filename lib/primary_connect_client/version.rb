@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.3.0
 =end
 
 module PrimaryConnectClient
-  VERSION = '1.15.0'
+  VERSION = '1.16.0'
 end
