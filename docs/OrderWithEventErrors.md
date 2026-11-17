@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **order** | [**Order**](Order.md) |  | [optional] |
 | **errors** | **Array&lt;String&gt;** |  | [optional] |
+| **warnings** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'primary_connect_client'
 
 instance = PrimaryConnectClient::OrderWithEventErrors.new(
   order: null,
-  errors: null
+  errors: null,
+  warnings: null
 )
 ```
 
