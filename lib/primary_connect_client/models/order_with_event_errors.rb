@@ -19,11 +19,14 @@ module PrimaryConnectClient
 
     attr_accessor :errors
 
+    attr_accessor :warnings
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'order' => :'order',
-        :'errors' => :'errors'
+        :'errors' => :'errors',
+        :'warnings' => :'warnings'
       }
     end
 
@@ -36,7 +39,8 @@ module PrimaryConnectClient
     def self.openapi_types
       {
         :'order' => :'Order',
-        :'errors' => :'Array<String>'
+        :'errors' => :'Array<String>',
+        :'warnings' => :'Array<String>'
       }
     end
 
@@ -70,6 +74,12 @@ module PrimaryConnectClient
           self.errors = value
         end
       end
+
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -91,7 +101,8 @@ module PrimaryConnectClient
       return true if self.equal?(o)
       self.class == o.class &&
           order == o.order &&
-          errors == o.errors
+          errors == o.errors &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -103,7 +114,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [order, errors].hash
+      [order, errors, warnings].hash
     end
 
     # Builds the object from hash
