@@ -1,9 +1,12 @@
 # Change Log
 
-## 1.15.0
+## 1.16.0
 
 - Added `assigning_authority` to `Identifier` (the CX-4 assigning authority for identifiers parsed from HL7)
 - Documented `Identifier#id_type` as the CX-5 type code (e.g. `MR`, `SR`, `PI`) for identifiers parsed from HL7
+
+## 1.15.0
+
 - Added `warnings` to `OrderWithEventErrors`
 
 ## 1.13.0
