@@ -17,14 +17,18 @@ module PrimaryConnectClient
   class Identifier
     attr_accessor :id
 
-    # E.g. MRN, EPI, EHRI, NIST, NPI, Payor ID
+    # The identifier type. For identifiers parsed from HL7 (e.g. IIS query responses), the CX-5 type code from HL7 table 0203, such as MR, SR or PI. Elsewhere, a label such as MRN, EPI, EHRI, NIST, NPI or Payor ID.
     attr_accessor :id_type
+
+    # The CX-4 assigning authority namespace for identifiers parsed from HL7, such as CAA or NMSIIS. Empty when the sender omits it.
+    attr_accessor :assigning_authority
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'id_type' => :'idType'
+        :'id_type' => :'idType',
+        :'assigning_authority' => :'assigningAuthority'
       }
     end
 
@@ -37,7 +41,8 @@ module PrimaryConnectClient
     def self.openapi_types
       {
         :'id' => :'String',
-        :'id_type' => :'String'
+        :'id_type' => :'String',
+        :'assigning_authority' => :'String'
       }
     end
 
@@ -69,6 +74,10 @@ module PrimaryConnectClient
       if attributes.key?(:'id_type')
         self.id_type = attributes[:'id_type']
       end
+
+      if attributes.key?(:'assigning_authority')
+        self.assigning_authority = attributes[:'assigning_authority']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -90,7 +99,8 @@ module PrimaryConnectClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          id_type == o.id_type
+          id_type == o.id_type &&
+          assigning_authority == o.assigning_authority
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module PrimaryConnectClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, id_type].hash
+      [id, id_type, assigning_authority].hash
     end
 
     # Builds the object from hash
